@@ -70,6 +70,7 @@
   --color-blue-a1: rgba(56,161,219,0.1);
   --color-blue-a2: rgba(56,161,219,0.2);
   --color-blue-a3: rgba(56,161,219,0.3);
+  --color-blue-light: #25c9ef;
   --body-bg-shadow: var(--grey-2);
   --box-bg-shadow: var(--grey-9-a1);
   --text-color: var(--grey-7);
@@ -3004,7 +3005,7 @@ main >.inner {
   height: 100%;
   width: 0;
   right: 0;
-  background: var(--color-red-a1);
+  background: var(--color-blue-a1);
   border-radius: 0.25rem;
   transition: all 0.2s ease-in-out 0s;
 }
@@ -4488,7 +4489,7 @@ code,
 }
 .md ul > li:hover::before,
 .md dl dt:hover::before {
-  background: var(--color-pink);
+  background: var(--color-blue-light);
 }
 .md ol:not([start]) {
   counter-reset: counter;
@@ -4511,7 +4512,7 @@ code,
 }
 .md ol >li:hover::before {
   color: var(--grey-1);
-  background: var(--color-pink);
+  background: var(--color-blue-light);
 }
 .md dl dt {
   position: relative;
@@ -4566,7 +4567,7 @@ code,
 .md li ol > li:hover::before,
 .md dd ol > li:hover::before {
   background: none;
-  color: var(--color-pink);
+  color: var(--color-blue-light);
 }
 .md ol>li.quiz >ul.options li.right::before,
 .md ol>li.quiz.show.true::before {
