@@ -33,7 +33,7 @@
 
   <title>
 SQL - 其他 - 数据管理基础 |
-Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
+Kaleido's Blog = おはよう = 敬冰茶搅拌的声音</title>
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
@@ -102,12 +102,12 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
         </ul>
       </div>
     </header>
@@ -146,7 +146,7 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
     <meta itemprop="name" content="Kaleido">
-    <meta itemprop="description" content="==敬冰茶搅拌的声音==, ">
+    <meta itemprop="description" content="敬冰茶搅拌的声音, ">
   </span>
 
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -219,6 +219,69 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
 <li>删除表 <code>DROP TABLE [IF EXISTS] 表名;</code></li>
 <li>删除指定表，并重新创建该表 <code>TRUNCATE TABLE 表名;</code></li>
 </ol>
+<h2 id="3-总结"><a class="anchor" href="#3-总结">#</a> 3. 总结</h2>
+<ol>
+<li>DDL - 数据库操作
+<ul>
+<li><code>SHOW DATABASE;</code></li>
+<li><code>CREATE DATABASE 数据库名;</code></li>
+<li><code>USE 数据库名;</code></li>
+<li><code>SELECT DATABASE();</code></li>
+<li><code>DROP DATABASE 数据库名;</code></li>
+</ul>
+</li>
+<li>DDL－表操作
+<ul>
+<li><code>SHOW TABLES;</code></li>
+<li><code>CREATE TABLE 表名 (字段 字段类型, 字段 字段类型);</code></li>
+<li><code>DESC 表名;</code></li>
+<li><code>SHOW DATABASE TABLE 表名;</code></li>
+<li><code>ALTER TABLE 表名 ADD/MODIFY/CHANGE/DROP/RENAME TO ...;</code></li>
+<li><code>DROP 表名;</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="dml"><a class="anchor" href="#dml">#</a> DML</h1>
+<h2 id="1-添加数据-insert"><a class="anchor" href="#1-添加数据-insert">#</a> 1. 添加数据 INSERT</h2>
+<ul>
+<li>给指定字段添加数据 <code>INSERT INTO 表名 (字段1, 字段2, ...) VALUES (值1, 值2, ...);</code></li>
+<li>给全部字段添加数据 <code>INSERT INTO 表名 VALUES (值1, 值2, ...);</code></li>
+<li>批量添加数据
+<ul>
+<li><code>INSERT INTO 表名 (字段1, 字段2, ...) VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);</code></li>
+<li><code>INSERT INTO 表名 VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-修改数据-update"><a class="anchor" href="#2-修改数据-update">#</a> 2. 修改数据 UPDATE</h2>
+<ul>
+<li><code>UPDATE 表名 SET 字段名1 = 值1, 字段名2 = 值2, ... [WHERE 条件];</code></li>
+</ul>
+<h2 id="3-删除数据-delete"><a class="anchor" href="#3-删除数据-delete">#</a> 3. 删除数据 DELETE</h2>
+<ul>
+<li><code>DELETE FROM 表名 [WHERE 条件];</code></li>
+<li>DELETE 语句不能删除某一个字段的值（可以使用 UPDATE 置 NULL）</li>
+</ul>
+<h1 id="dql"><a class="anchor" href="#dql">#</a> DQL</h1>
+<h2 id="1-基本查询"><a class="anchor" href="#1-基本查询">#</a> 1. 基本查询</h2>
+<ol>
+<li>查询多个字段
+<ul>
+<li><code>SELECT 字段1, 字段2, 字段3 ... FROM 表名;</code></li>
+<li><code>SELECT * FROM 表名;</code></li>
+</ul>
+</li>
+<li>设置别名 <code>SELECT 字段1 [AS 别名1], 字段2 [AS别名2] ... FROM 表名;</code></li>
+<li>去除重复记录 <code>SELECT DISTINCT 字段列表 FROM 表名;</code></li>
+</ol>
+<h2 id="2-条件查询where"><a class="anchor" href="#2-条件查询where">#</a> 2. 条件查询（WHERE）</h2>
+<ol>
+<li>语法 <code>SELECT 字段列表 FROM 表名 WHERE 条件列表;</code></li>
+</ol>
+<h2 id="3-聚合函数count-max-min-avg-sum"><a class="anchor" href="#3-聚合函数count-max-min-avg-sum">#</a> 3. 聚合函数（count、max、min、avg、sum）</h2>
+<h2 id="4-分组查询group-by"><a class="anchor" href="#4-分组查询group-by">#</a> 4. 分组查询（GROUP BY）</h2>
+<h2 id="5-排序查询order-by"><a class="anchor" href="#5-排序查询order-by">#</a> 5. 排序查询（ORDER BY）</h2>
+<h2 id="6-分页查询limit"><a class="anchor" href="#6-分页查询limit">#</a> 6. 分页查询（LIMIT）</h2>
 
       <div class="tags">
           <a href="/tags/SQL/" rel="tag"><i class="ic i-tag"></i> SQL</a>
@@ -233,7 +296,7 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-03-03 13:43:43" itemprop="dateModified" datetime="2023-03-03T13:43:43+08:00">2023-03-03</time>
+    <time title="修改时间：2023-03-05 21:47:30" itemprop="dateModified" datetime="2023-03-05T21:47:30+08:00">2023-03-05</time>
   </span>
 </div>
 
@@ -288,7 +351,7 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
     <div class="item left">
       
 
-  <a href="/2022/10/01/Leetcode-2022-october/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexoj0moj20zk0m8kgu.jpg" title="2022 October">
+  <a href="/2022/10/01/Leetcode-2022-october/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitspjpbj20zk0m81ky.jpg" title="2022 October">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Leetcode</span>
   <h3>2022 October</h3>
@@ -312,7 +375,7 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ddl"><span class="toc-number">1.</span> <span class="toc-text"> DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 数据库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 表操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 修改</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ddl"><span class="toc-number">1.</span> <span class="toc-text"> DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 数据库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 表操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. 总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dml"><span class="toc-number">2.</span> <span class="toc-text"> DML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE-insert"><span class="toc-number">2.1.</span> <span class="toc-text"> 1. 添加数据 INSERT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE-update"><span class="toc-number">2.2.</span> <span class="toc-text"> 2. 修改数据 UPDATE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE-delete"><span class="toc-number">2.3.</span> <span class="toc-text"> 3. 删除数据 DELETE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dql"><span class="toc-number">3.</span> <span class="toc-text"> DQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="toc-number">3.1.</span> <span class="toc-text"> 1. 基本查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2where"><span class="toc-number">3.2.</span> <span class="toc-text"> 2. 条件查询（WHERE）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0count-max-min-avg-sum"><span class="toc-number">3.3.</span> <span class="toc-text"> 3. 聚合函数（count、max、min、avg、sum）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2group-by"><span class="toc-number">3.4.</span> <span class="toc-text"> 4. 分组查询（GROUP BY）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2order-by"><span class="toc-number">3.5.</span> <span class="toc-text"> 5. 排序查询（ORDER BY）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2limit"><span class="toc-number">3.6.</span> <span class="toc-text"> 6. 分页查询（LIMIT）</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -413,10 +476,12 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Leetcode/" title="分类于 Leetcode">Leetcode</a>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/" title="分类于 数据管理基础">数据管理基础</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/" title="分类于 其他">其他</a>
 </div>
 
-    <span><a href="/2022/10/01/Leetcode-2022-october/" title="2022 October">2022 October</a></span>
+    <span><a href="/2023/03/02/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80-%E5%85%B6%E4%BB%96-SQL/" title="SQL">SQL</a></span>
   </li>
 
       
@@ -435,12 +500,10 @@ Kaleido's Blog = おはよう = ==敬冰茶搅拌的声音==</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/" title="分类于 数据管理基础">数据管理基础</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/" title="分类于 其他">其他</a>
+<a href="/categories/Leetcode/" title="分类于 Leetcode">Leetcode</a>
 </div>
 
-    <span><a href="/2023/03/02/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80-%E5%85%B6%E4%BB%96-SQL/" title="SQL">SQL</a></span>
+    <span><a href="/2022/10/01/Leetcode-2022-october/" title="2022 October">2022 October</a></span>
   </li>
 
   </ul>
