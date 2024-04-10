@@ -25,12 +25,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Self-AttentionSelf-Attention机制是一种在序列处理中非常重要的技术，它允许模型在处理一个序列的特定位置时，能够考虑到序列中的其他位置，从而捕捉序列内部的复杂依赖关系。 自注意力机制的核心思想是通过计算序列中每个元素对其他元素的影响权重来实现内部的关联，这些权重反映了元素之间的相似性或者关联性。具体来说，自注意力机制包含以下几个步骤： 1）自注意力机制首先将输入序列的每个元">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2024/04/02/Attention-Is-All-You-Need/Attension-Is-All-You-Need/SS-2024-04-07-193511.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-07-193511.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-07-193649.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-07-193751.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-07-212721.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-08-000557.png">
 <meta property="article:published_time" content="2024-04-02T07:08:40.458Z">
-<meta property="article:modified_time" content="2024-04-07T11:59:43.004Z">
+<meta property="article:modified_time" content="2024-04-07T16:07:49.805Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/04/02/Attention-Is-All-You-Need/Attension-Is-All-You-Need/SS-2024-04-07-193511.png">
+<meta name="twitter:image" content="http://example.com/pics/2024-04/SS-2024-04-07-193511.png">
     
     
     <!--- Icon Part-->
@@ -232,7 +236,7 @@
     
     <script id="hexo-configurations">
     window.config = {"hostname":"example.com","root":"/","language":"en"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"},"english":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"enable","links":{"github":"https://github.com/kaleidoyao","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/238750552"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/1/1 00:00:00"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"},"english":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Kaleido's Blog","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"enable","links":{"github":"https://github.com/kaleidoyao","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/238750552"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/1/1 00:00:00"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":false};
   </script>
@@ -254,7 +258,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.0.0"></head>
+<meta name="generator" content="Hexo 7.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -390,15 +506,15 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -452,8 +568,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-07 19:59:43</span>
-            <span class="mobile">2024-04-07 19:59:43</span>
+            <span class="desktop">2024-04-08 00:07:49</span>
+            <span class="mobile">2024-04-08 00:07:49</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -485,19 +601,29 @@
 <p>1）自注意力机制首先将输入序列的每个元素转换成三个不同的向量，分别是Query（查询）、Key（键）和Value（值）。这通常是通过将输入向量与三个不同的权重矩阵相乘来实现的。这样，对于序列中的每个元素，我们都有对应的三个向量。</p>
 <p>2）接下来，自注意力机制计算每个Query与其他所有元素的Key之间的点积，得到一个分数，这个分数反映了Query与每个元素的匹配程度。然后，通过应用一个softmax函数，将这些分数转换成概率，即注意力权重。</p>
 <p>3）一旦我们有了注意力权重，就可以用它们来加权对应的Value向量。具体来说，就是将每个Value与其对应的注意力权重相乘，然后将所有加权后的Value向量求和，得到最终的输出向量。</p>
-<p>4） </p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="./Attension-Is-All-You-Need/SS-2024-04-07-193511.png"
-                      width="700" 
-                >
+<p>4）为了稳定学习过程并提高模型性能，自注意力机制通常会并行地执行多次（称为“头”），每个头都有自己的权重矩阵。最后，这些头的输出会被拼接起来，并通过一个线性变换，得到最终的输出。</p>
+<img lazyload="" src="/images/loading.svg" data-src="/../pics/2024-04/SS-2024-04-07-193511.png" alt="image.png" width="600">
 
-<!-- ![image.png](../pics/SS-2024-04-07-193511.png)
+<img lazyload="" src="/images/loading.svg" data-src="/../pics/2024-04/SS-2024-04-07-193649.png" alt="image.png" width="600">
 
-![image.png](../pics/SS-2024-04-07-193649.png)
+<img lazyload="" src="/images/loading.svg" data-src="/../pics/2024-04/SS-2024-04-07-193751.png" alt="image.png" width="600">
 
-![image.png](../pics/SS-2024-04-07-193751.png) -->
+<h2 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h2><ul>
+<li>No position information in self-attention.</li>
+<li>Each position has a unique positional vector <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.794ex" height="1.904ex" role="img" focusable="false" viewBox="0 -830.4 793 841.4"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(499,363) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>.</li>
+</ul>
+<h1 id="Seq2seq-Model"><a href="#Seq2seq-Model" class="headerlink" title="Seq2seq Model"></a>Seq2seq Model</h1><img lazyload="" src="/images/loading.svg" data-src="/../pics/2024-04/SS-2024-04-07-212721.png" alt="image.png" width="600">
+
+<h1 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h1><h1 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h1><h2 id="Masked-Self-attention"><a href="#Masked-Self-attention" class="headerlink" title="Masked Self-attention"></a>Masked Self-attention</h2><ul>
+<li>Masked self-attention是对self-attention的一种改进，它在计算注意力时引入了masking机制。</li>
+<li>遮蔽机制通过将某些位置的注意力权重设置为一个很小的值（通常是负无穷大），从而阻止模型在这些位置上进行关注。</li>
+<li>这种机制通常用于处理那些模型在训练时不应该关注的信息，例如在语言模型中，当模型尝试预测下一个词时，它不应该关注到未来的词汇。在序列生成任务中，如机器翻译或文本生成，masked self-attention确保模型在生成当前位置的输出时，只能使用之前的元素，而不能使用之后未来的元素。</li>
+</ul>
+<h2 id="AT-VS-NAT"><a href="#AT-VS-NAT" class="headerlink" title="AT VS NAT"></a>AT VS NAT</h2><img lazyload="" src="/images/loading.svg" data-src="/../pics/2024-04/SS-2024-04-08-000557.png" alt="image.png" width="600">
+
+<h1 id="Efficient-Transformers-A-Survey"><a href="#Efficient-Transformers-A-Survey" class="headerlink" title="Efficient Transformers: A Survey"></a>Efficient Transformers: A Survey</h1><p><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">https://arxiv.org/abs/2009.06732 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><strong>平方复杂度问题</strong>：标准Transformer模型中的self-attention机制具有<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container>的时间和空间复杂度。因为自注意力机制需要计算序列中所有元素对之间的注意力分数，导致计算量和内存需求随着序列长度的增加而呈平方级增长。这种复杂度在长序列处理任务中尤其成问题，因为它限制了模型可处理的序列长度，并增加了计算资源的需求。</p>
+
         </div>
 
         
@@ -511,7 +637,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-07 19:59:43
+                    :</strong> 2024-04-08 00:07:49
             </li>
         
         <li>
@@ -626,7 +752,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Attention Is All You Need</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-Attention"><span class="nav-text">Self-Attention</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-Attention"><span class="nav-text">Self-Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Positional-Encoding"><span class="nav-text">Positional Encoding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Seq2seq-Model"><span class="nav-text">Seq2seq Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Encoder"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decoder"><span class="nav-text">Decoder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Masked-Self-attention"><span class="nav-text">Masked Self-attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT-VS-NAT"><span class="nav-text">AT VS NAT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Efficient-Transformers-A-Survey"><span class="nav-text">Efficient Transformers: A Survey</span></a></li></ol>
 
     </div>
 </div>
