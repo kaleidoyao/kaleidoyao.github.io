@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Kaleido">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/02/01/2023-fall-review-软件测试-03/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="随机测试 定义：随机生成测试数据并执行测试。随机测试的理论基础是大数定律，即在试验不变的条件下，重复试验多次，这可以让概率低的偶然现象发生。 应用场景： 无效输入：对无效输入进行过滤，便于开发者进行防御式编程 断言失败 错误输出 异常崩溃    变异测试 正向：修复错误的程序、产生新的测试用例 反向：产生错误的程序片段、生成恶意测试用例（变异测试）  变异测试的产生：模拟缺陷，量化缺陷检测能力，扮">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试-源码测试">
+<meta property="og:url" content="http://example.com/2024/02/01/2023-fall-review-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95-03/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="随机测试 定义：随机生成测试数据并执行测试。随机测试的理论基础是大数定律，即在试验不变的条件下，重复试验多次，这可以让概率低的偶然现象发生。 应用场景： 无效输入：对无效输入进行过滤，便于开发者进行防御式编程 断言失败 错误输出 异常崩溃    变异测试 正向：修复错误的程序、产生新的测试用例 反向：产生错误的程序片段、生成恶意测试用例（变异测试）  变异测试的产生：模拟缺陷，量化缺陷检测能力，扮">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/pics/23-F-ST-4.png">
+<meta property="og:image" content="http://example.com/pics/23-F-ST-5.png">
+<meta property="og:image" content="http://example.com/pics/23-F-ST-6.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703821519463-cd84fdc5-bc48-428e-adc8-7b6a733f47c4.png#averageHue=%23f7f7f6&clientId=ua8406a3e-f13d-4&from=paste&height=299&id=ua13af0ac&originHeight=473&originWidth=633&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=52436&status=done&style=none&taskId=udfb6c8cf-fb7b-4976-8658-8ebc746975a&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704089026911-410c46e4-ed5a-4d1a-b3d4-eabe68e89626.png#averageHue=%23f9f8f8&clientId=u0f8415bf-bf95-4&from=paste&height=340&id=u01144093&originHeight=593&originWidth=960&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=97502&status=done&style=none&taskId=u22533d9e-4a7d-4b21-a023-7597344b1f4&title=&width=550">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704089262631-1fb762a7-bc73-4b9f-86b8-1d2235a924b6.png#averageHue=%23f9f9f8&clientId=u0f8415bf-bf95-4&from=paste&height=338&id=u6286afcd&originHeight=590&originWidth=959&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=101763&status=done&style=none&taskId=uf5026bed-1421-44b0-87bf-c6adef893ec&title=&width=550">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704092535443-1dafbbb3-c09c-47a2-97f6-6cbf8e0bfecb.png#averageHue=%23fafaf9&clientId=u0f8415bf-bf95-4&from=paste&height=189&id=DiBSF&originHeight=304&originWidth=805&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46566&status=done&style=none&taskId=u660ab7ac-741e-4665-833f-adcb02c033c&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704092579938-a0277074-cb75-4fed-b8fd-7bdfe06cb546.png#averageHue=%23fcfcfb&clientId=u0f8415bf-bf95-4&from=paste&height=185&id=u86a4ec0f&originHeight=289&originWidth=783&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=27847&status=done&style=none&taskId=ub392114c-e842-4783-89ed-b71e72235d7&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704093162175-c0b98bbc-9348-405d-9f3e-302ea0bd5b90.png#averageHue=%23f6f5f4&clientId=u0f8415bf-bf95-4&from=paste&height=372&id=u93b85844&originHeight=592&originWidth=956&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=121461&status=done&style=none&taskId=u8f7bc667-ce64-4770-ad9a-76d188714e8&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704088422493-531dca76-4f77-44ea-8fbf-725eb90f1227.png#averageHue=%23eeece9&clientId=u0f8415bf-bf95-4&from=paste&height=248&id=uce7684d9&originHeight=355&originWidth=715&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=131065&status=done&style=none&taskId=u33489031-c766-46b3-9672-a6544f6cf94&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087314974-d8dc1299-f671-4c9a-b7c4-69886c35faf8.png#averageHue=%23eeedeb&clientId=u0f8415bf-bf95-4&from=paste&height=256&id=ub01ae443&originHeight=446&originWidth=872&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=138441&status=done&style=none&taskId=u106355b2-620a-483e-872b-8e3fc1db52c&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087349217-1decd79a-e415-4530-b383-b22b5996d7c7.png#averageHue=%23f0eeec&clientId=u0f8415bf-bf95-4&from=paste&height=279&id=ubf4d7adc&originHeight=481&originWidth=861&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=141994&status=done&style=none&taskId=uf9222f32-f4ca-41ce-9c75-68347be18ca&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087418787-5d9da63a-74e9-41ee-a5e9-b1c8bc9df96a.png#averageHue=%23efedeb&clientId=u0f8415bf-bf95-4&from=paste&height=281&id=uc7bfcdfb&originHeight=481&originWidth=855&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=159326&status=done&style=none&taskId=u14a0ba6f-5374-4d0f-bcc1-7b741c0a9c8&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703762291971-1279d01c-915d-46c0-9d18-6621bf47cf48.png#averageHue=%23f0f0f0&clientId=ubed3c36c-da68-4&from=paste&height=347&id=OL5oX&originHeight=580&originWidth=1003&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=120091&status=done&style=none&taskId=u1487d9c5-be25-4071-83af-c20d3eba466&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703765174834-4cfbd5d1-7dc9-4c9b-9745-8c872f183745.png#averageHue=%23efefef&clientId=ubed3c36c-da68-4&from=paste&height=214&id=u2cd7e3bb&originHeight=405&originWidth=947&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=89602&status=done&style=none&taskId=u3ccc5bbc-4a70-4d7f-b03a-ce02ecd3b99&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703766234922-4ed4f751-ccbe-486f-bfec-41e99a3ef0cb.png#averageHue=%23f0f0f0&clientId=ubed3c36c-da68-4&from=paste&height=222&id=WQm02&originHeight=398&originWidth=896&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=78938&status=done&style=none&taskId=u3530c0dc-11a5-49f0-8c61-53d4279bf55&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703764419846-086469e9-5220-416e-a8bc-a13198abaa20.png#averageHue=%23ededed&clientId=ubed3c36c-da68-4&from=paste&height=195&id=x83xz&originHeight=387&originWidth=990&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=78128&status=done&style=none&taskId=uf3d9669d-e52c-4344-8228-4e0aec398c9&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704096414786-0d644f82-5375-44d6-8c5f-f7a85a7f2f76.png#averageHue=%23f8f6f4&clientId=ua38ebd13-9089-4&from=paste&height=263&id=u0fcb8919&originHeight=389&originWidth=739&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=81233&status=done&style=none&taskId=u99a70043-fc48-410c-af7a-8b88f4e8c8f&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704096783957-0ea206ec-d481-44fd-b771-b06d350e52b0.png#averageHue=%23f6f6f6&clientId=ua38ebd13-9089-4&from=paste&height=373&id=u776754d7&originHeight=693&originWidth=1116&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=175275&status=done&style=none&taskId=ue010cc85-8cf2-45c0-bcf9-fa974545c87&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097110272-3c4d9003-338d-46b7-9b5d-7e77bf37c001.png#averageHue=%23f7f7f6&clientId=ua38ebd13-9089-4&from=paste&height=369&id=u46181aca&originHeight=685&originWidth=1115&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=149748&status=done&style=none&taskId=u47aeba83-e498-4f92-822f-f8cfdd32a2e&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097580897-c586e4ff-4c35-4dff-8b4c-abfcef56f0e0.png#averageHue=%23f2f0ee&clientId=ua38ebd13-9089-4&from=paste&height=167&id=u96e4ae02&originHeight=343&originWidth=822&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=102459&status=done&style=none&taskId=u49204b9d-7540-4408-aff9-f0e1935d23c&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097636440-d864cdec-ccef-4e0b-ad25-0c18df81ee10.png#averageHue=%23f5f3f2&clientId=ua38ebd13-9089-4&from=paste&height=157&id=u772446bd&originHeight=322&originWidth=822&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=90193&status=done&style=none&taskId=u71e81eb8-56cd-406f-8a13-bebb0ebd827&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704098053144-9e1a5ce2-3b58-4e18-a3fd-2d14346f9cc9.png#averageHue=%23f1f0ef&clientId=ua38ebd13-9089-4&from=paste&height=256&id=ue55dfe54&originHeight=516&originWidth=1409&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=206816&status=done&style=none&taskId=ueadf83a2-a458-4bd7-a06b-1f3fa2aa3ee&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704098093841-c8cbeb20-f44d-459f-aebd-0726caa01a10.png#averageHue=%23f0efee&clientId=ua38ebd13-9089-4&from=paste&height=265&id=u5eae556c&originHeight=526&originWidth=1389&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=226090&status=done&style=none&taskId=u16a87950-a3fa-4ec2-b385-57086be99c6&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704099930739-f062696c-5a31-4121-8a16-e2977500b0fc.png#averageHue=%23f1eeec&clientId=ua38ebd13-9089-4&from=paste&height=145&id=u15c95e71&originHeight=266&originWidth=732&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=85219&status=done&style=none&taskId=u0d8e6ecd-2515-4ed9-b0a1-8329f55275c&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704099975792-7ffbd7be-1516-4c8f-807d-d1898e3efdce.png#averageHue=%23f7f7f6&clientId=ua38ebd13-9089-4&from=paste&height=371&id=u2999f134&originHeight=582&originWidth=940&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=100327&status=done&style=none&taskId=uad754cd2-9a93-479f-a8ea-991ac6db56f&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704100010511-83f37be6-d8ef-498d-824b-573b4de5e59e.png#averageHue=%23f6f6f5&clientId=ua38ebd13-9089-4&from=paste&height=370&id=u59b76871&originHeight=579&originWidth=938&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=99765&status=done&style=none&taskId=u2f7e2c63-1d90-4b58-8104-18c6513fb88&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704101820786-642f8a74-7bba-4d6a-bb2f-24aace3cd72b.png#averageHue=%23f7f7f7&clientId=ua38ebd13-9089-4&from=paste&height=264&id=ue8a9e64e&originHeight=448&originWidth=1187&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=106652&status=done&style=none&taskId=u46e11c44-45d1-48e0-8450-51b71f235c8&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704101954736-75b7ad99-2de3-4cbd-a64e-e7a1fd043b0b.png#averageHue=%23f7f6f6&clientId=ua38ebd13-9089-4&from=paste&height=314&id=u8c3b2704&originHeight=505&originWidth=1125&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=135878&status=done&style=none&taskId=u3b3c1c04-005d-46cc-b6e6-c7644b96a7c&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102024856-3c2078a0-4124-49d7-9084-bce351eafae2.png#averageHue=%23f7f7f7&clientId=ua38ebd13-9089-4&from=paste&height=248&id=uf18273a4&originHeight=441&originWidth=1244&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=153891&status=done&style=none&taskId=u8856d373-8c2a-457c-ad39-f117b870f42&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102065353-b8c2be69-6862-468f-ac28-b512fe1a4206.png#averageHue=%23f8f8f8&clientId=ua38ebd13-9089-4&from=paste&height=249&id=u3f7215ea&originHeight=442&originWidth=1243&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=144513&status=done&style=none&taskId=u8471a4e2-33a9-4264-8205-30ac13691ec&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102142853-f55a324b-5890-4e84-a194-a8bc937072cb.png#averageHue=%23f2f1f1&clientId=ua38ebd13-9089-4&from=paste&height=160&id=u87f358de&originHeight=287&originWidth=899&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=93766&status=done&style=none&taskId=u168fe2ff-5bd4-4c0e-b7a7-d28baa5ab7e&title=&width=500">
+<meta property="article:published_time" content="2024-01-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-07T09:03:12.947Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pics/23-F-ST-4.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            软件测试-源码测试 -
+        
+        Kaleido&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Kaleido&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"},"english":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"enable","links":{"github":"https://github.com/kaleidoyao","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/238750552"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/1/1 00:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Kaleido&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">软件测试-源码测试</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Kaleido</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-02-01</span>
+        <span class="mobile">2024-02-01</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-04-07 17:03:12</span>
+            <span class="mobile">2024-04-07 17:03:12</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="随机测试"><a href="#随机测试" class="headerlink" title="随机测试"></a>随机测试</h1><ol>
+<li>定义：随机生成测试数据并执行测试。随机测试的理论基础是大数定律，即在试验不变的条件下，重复试验多次，这可以让概率低的偶然现象发生。</li>
+<li>应用场景：<ul>
+<li>无效输入：对无效输入进行过滤，便于开发者进行防御式编程</li>
+<li>断言失败</li>
+<li>错误输出</li>
+<li>异常崩溃</li>
+</ul>
+</li>
+</ol>
+<h1 id="变异测试"><a href="#变异测试" class="headerlink" title="变异测试"></a>变异测试</h1><ul>
+<li>正向：修复错误的程序、产生新的测试用例</li>
+<li>反向：产生错误的程序片段、生成恶意测试用例（变异测试）</li>
+</ul>
+<p>变异测试的产生：<strong>模拟</strong>缺陷，<strong>量化</strong>缺陷检测能力，扮演测试有效性的指示器</p>
+<ul>
+<li>模拟：变异产生错误版本，模拟探测Bug的过程</li>
+<li>量化：变异得分（变异杀死率）</li>
+</ul>
+<p><strong>变异体（Mutant）</strong></p>
+<ul>
+<li>基于一定的语法（Syntax）变换规则，通过对源程序进行程序变换得到的一系列变体</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/23-F-ST-4.png"
+                      alt="image.png"
+                ></p>
+<p><strong>变异得分（Mutation Score）</strong>：变异测试对测试套件错误检测能力的量化</p>
+<ul>
+<li>杀死与存活：变异体是否导致某个测试用例运行失败；测试用例是否“检测”到某个变异体</li>
+<li>检测到：变体被杀死（Killed）；未检测到：变体存活（Survived）</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/23-F-ST-5.png"
+                      alt="image.png"
+                ></p>
+<p><strong>杀死条件（Mutant Killing Condition）</strong></p>
+<ul>
+<li>受程序行为（可观测的程序输出 Propagation、程序的中间状态 Infection）的定义影响**  **</li>
+<li>缺陷传播模型：RIPR和PIE</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/23-F-ST-6.png"
+                      alt="image.png"
+                ></p>
+<ul>
+<li>根据杀死条件的不同，变异可以分为三种：<ul>
+<li>Weak mutation：变异导致紧随变化位置的程序状态发生了改变（R &amp; E）</li>
+<li>Firm Mutation：变异导致远离变化位置的程序状态发生了改变（I）</li>
+<li>Strong Mutation：变异导致程序的输出发生了变化（P &amp; PR）</li>
+<li>变异的要求变高，变异体质量提升</li>
+</ul>
+</li>
+</ul>
+<h2 id="变异体的分类"><a href="#变异体的分类" class="headerlink" title="变异体的分类"></a>变异体的分类</h2><ol>
+<li>等价变异体：对于待测程序P的变体mut，如果mut和P的语法不同、语义相同，则称mut是P的等价变异体<ul>
+<li>语义相同：对于给定输入，两个程序总能给出相同的输出</li>
+</ul>
+</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703821519463-cd84fdc5-bc48-428e-adc8-7b6a733f47c4.png#averageHue=%23f7f7f6&clientId=ua8406a3e-f13d-4&from=paste&height=299&id=ua13af0ac&originHeight=473&originWidth=633&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=52436&status=done&style=none&taskId=udfb6c8cf-fb7b-4976-8658-8ebc746975a&title=&width=400"
+                      alt="image.png"
+                ></p>
+<ol start="2">
+<li>重复变异体：对于待测程序P的两个变体mut1和mut2，如果mut1和mut2语义相同，则mut1和mut2互为重复<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704089026911-410c46e4-ed5a-4d1a-b3d4-eabe68e89626.png#averageHue=%23f9f8f8&clientId=u0f8415bf-bf95-4&from=paste&height=340&id=u01144093&originHeight=593&originWidth=960&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=97502&status=done&style=none&taskId=u22533d9e-4a7d-4b21-a023-7597344b1f4&title=&width=550"
+                      alt="image.png"
+                ><br>蕴含变异体：对于两个变体mut1和mut2，如果任意杀死mut1的测试用例t都可以杀死mut2，则称mut1蕴含mut2<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704089262631-1fb762a7-bc73-4b9f-86b8-1d2235a924b6.png#averageHue=%23f9f9f8&clientId=u0f8415bf-bf95-4&from=paste&height=338&id=u6286afcd&originHeight=590&originWidth=959&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=101763&status=done&style=none&taskId=uf5026bed-1421-44b0-87bf-c6adef893ec&title=&width=550"
+                      alt="image.png"
+                ></li>
+</ol>
+<h2 id="变异测试过程"><a href="#变异测试过程" class="headerlink" title="变异测试过程"></a>变异测试过程</h2><ol>
+<li><strong>变异体筛选</strong>：两种方式<ol>
+<li>变异算子的定义：算子是一组语法转换规则；算子反映了特定的缺陷类型</li>
+<li>对变异算子筛选，再生成变异体<ol>
+<li>有助于减少无关变异体的生成，节省开销</li>
+</ol>
+</li>
+<li>对变异体筛选（即变异体约减）<ol>
+<li>变异体约减旨在从变异体全集中选出具有代表性变异体子集，有助于减少变异测试所需的资源，提高可拓展性</li>
+<li>随机选取：随机扔掉一些变异体，但缺陷丢失率损失不大</li>
+<li>基于类型：某些类型的变异体可能要更加重要 </li>
+<li>基于分布：利用AST选取更加分散的变异体</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>变异体生成</strong>：将选中的变异体（算子）实例化，为每个变体构建一个单独的源文件<ol>
+<li>元变异：核心是程序模式（程序模板 + 部分编译，只编译变异后的代码）</li>
+<li>基于字节码操作：避免编译，从而减少时间开销</li>
+<li>热替换</li>
+</ol>
+</li>
+<li><strong>变异体优化</strong>：去除有等价和无效变异体<ol>
+<li>通过静态分析的方式，识别并移除有问题的变异体  </li>
+<li>识别等价变异体<ol>
+<li>代码优化：对源代码和变异体进行优化，移除优化后与源代码相同的变异体</li>
+<li>静态数据流分析，如值分析</li>
+</ol>
+</li>
+<li>识别冗余变异体<ol>
+<li>操作符的角度：如&gt;、&#x3D;&#x3D; 、&lt;之间的有机组合</li>
+<li>缺陷层级角度：变异体之间的从属关系</li>
+<li>程序分析角度：代码优化、符号执行</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>变异体执行</strong>：计算变异得分 &#x2F; 计算变异体矩阵<ol>
+<li>优化策略：<ol>
+<li>改变测试用例的顺序：</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704092535443-1dafbbb3-c09c-47a2-97f6-6cbf8e0bfecb.png#averageHue=%23fafaf9&clientId=u0f8415bf-bf95-4&from=paste&height=189&id=DiBSF&originHeight=304&originWidth=805&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46566&status=done&style=none&taskId=u660ab7ac-741e-4665-833f-adcb02c033c&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704092579938-a0277074-cb75-4fed-b8fd-7bdfe06cb546.png#averageHue=%23fcfcfb&clientId=u0f8415bf-bf95-4&from=paste&height=185&id=u86a4ec0f&originHeight=289&originWidth=783&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=27847&status=done&style=none&taskId=ub392114c-e842-4783-89ed-b71e72235d7&title=&width=500"
+                      alt="image.png"
+                ></p>
+<pre><code>  2. 匹配测试用例与变异体  
+  3. 避免执行必定存活的变异体
+  4. 限定变异体的执行时间
+</code></pre>
+<ol start="5">
+<li>变异得分计算：<ol>
+<li>变异杀死的条件：确定一个变异体是否被杀死，核心是定义程序行为</li>
+<li>测试预言的生成：生成更多、更好的测试语言来杀死更多变异体</li>
+</ol>
+</li>
+</ol>
+<h2 id="变异测试应用"><a href="#变异测试应用" class="headerlink" title="变异测试应用"></a>变异测试应用</h2><p>测试生成、预言生成、测试优化、debug引导<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704093162175-c0b98bbc-9348-405d-9f3e-302ea0bd5b90.png#averageHue=%23f6f5f4&clientId=u0f8415bf-bf95-4&from=paste&height=372&id=u93b85844&originHeight=592&originWidth=956&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=121461&status=done&style=none&taskId=u8f7bc667-ce64-4770-ad9a-76d188714e8&title=&width=600"
+                      alt="image.png"
+                ><br><strong>测试预言</strong></p>
+<ul>
+<li>测试预言分类：隐式、显式</li>
+<li>隐式预言：用于检测显著缺陷的测试预言。例如，预期外的程序崩溃就是一种典型的显著缺陷。</li>
+<li>显式预言：根据软件的预期功能提取得到的预言，一般用于检测功能性缺陷。</li>
+</ul>
+<p><strong>测试预言问题</strong><br>预言问题：给定系统的输入，如何找到能够正确辨别出符合期望的正确行为与发现潜在的不正确行为测试预言的挑战性难题。<br>预言问题具有挑战性的原因：</p>
+<ul>
+<li>缺少清晰的规格：文档通常用自然语言编写，而自然语言存在二义性</li>
+<li>软件的动态特征：网络问题导致的问题、线程调度产生的并发问题</li>
+<li>有限的测试资源：测试预言空间和测试输入空间一样无法穷尽</li>
+</ul>
+<p>预言问题解决方案：使用不完全测试预言</p>
+<ul>
+<li>差分测试（Differential Testing）</li>
+<li>蜕变测试（Metamorphic Testing）</li>
+</ul>
+<h1 id="差分测试"><a href="#差分测试" class="headerlink" title="差分测试"></a>差分测试</h1><p>差分测试本质：利用相似&#x2F;竞品软件系统进行测试<br>差分测试也称差分模糊测试，是一种常用的软件测试技术，通过向一系列类似的应用程序（或同一应用程序的不同实现）提供相同的输入，根据这些相似程序执行结果是否存在差异来判定是否检测到缺陷。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704088422493-531dca76-4f77-44ea-8fbf-725eb90f1227.png#averageHue=%23eeece9&clientId=u0f8415bf-bf95-4&from=paste&height=248&id=uce7684d9&originHeight=355&originWidth=715&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=131065&status=done&style=none&taskId=u33489031-c766-46b3-9672-a6544f6cf94&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h1 id="蜕变测试"><a href="#蜕变测试" class="headerlink" title="蜕变测试"></a>蜕变测试</h1><blockquote>
+<p>1998年，由Tsong Yueh Chen提出，是一种测试用例生成的新思路</p>
+</blockquote>
+<p>蜕变测试本质：充分利用成功测试用例；对成功测试用例表现出的<strong>必要属性</strong>的复用<br>蜕变测试依据被测软件的领域知识和软件的实现方法建立蜕变关系，利用蜕变关系来生成新的测试用例，通过验证蜕变关系是否被保持来决定测试是否通过。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087314974-d8dc1299-f671-4c9a-b7c4-69886c35faf8.png#averageHue=%23eeedeb&clientId=u0f8415bf-bf95-4&from=paste&height=256&id=ub01ae443&originHeight=446&originWidth=872&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=138441&status=done&style=none&taskId=u106355b2-620a-483e-872b-8e3fc1db52c&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087349217-1decd79a-e415-4530-b383-b22b5996d7c7.png#averageHue=%23f0eeec&clientId=u0f8415bf-bf95-4&from=paste&height=279&id=ubf4d7adc&originHeight=481&originWidth=861&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=141994&status=done&style=none&taskId=uf9222f32-f4ca-41ce-9c75-68347be18ca&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704087418787-5d9da63a-74e9-41ee-a5e9-b1c8bc9df96a.png#averageHue=%23efedeb&clientId=u0f8415bf-bf95-4&from=paste&height=281&id=uc7bfcdfb&originHeight=481&originWidth=855&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=159326&status=done&style=none&taskId=u14a0ba6f-5374-4d0f-bcc1-7b741c0a9c8&title=&width=500"
+                      alt="image.png"
+                ><br>蜕变测试中的四大误解</p>
+<ul>
+<li>误解一：所有的必要属性都是蜕变关系<br>蜕变关系是和待测算法的多个输入以及这些输入对应的期望输出相关的必要属性，即蜕变关系应当和多个输入实例相关</li>
+<li>误解二：所有的蜕变关系都能够划分成输入端和输出端的两个子关系</li>
+<li>误解三：所有的蜕变关系都是等式关系</li>
+<li>误解四：蜕变测试只能应用在测试预言缺失的场景下</li>
+</ul>
+<p><strong>蜕变与差分</strong></p>
+<ul>
+<li><strong>相同点：</strong><ul>
+<li>都利用了待测程序中的必要属性；都是黑盒测试技术</li>
+</ul>
+</li>
+<li><strong>不同点：</strong><ul>
+<li>必要属性的类型不同：蜕变测试利用了单一待测程序的必要属性；差分测试则利用了多个相似待测程序间的必要属性；</li>
+<li>正确性验证的准则不同：蜕变测试的正确性验证准则是可变的，由蜕变关系决定；差分测试的正确性准则是固定的，即不同相似待测程序在同一测试输入上的输出结果应该相同。</li>
+</ul>
+</li>
+</ul>
+<p><strong>回归测试概述</strong><br>回归测试作为一种有效的方法，可有效保证代码修改的正确性并避免代码修改对被测程序其他模块产生的副作用。在版本迭代过程中，常用的回归测试方法往往是重新执行之前已经积累的测试用例，但是这种简单的测试用例执行的策略，也导致了一些显而易见的问题。<br>现有用例策略：重新执行已有测试用例</p>
+<ul>
+<li>用例庞大：由于版本迭代，测试用例数量较多，则项目实际预算不允许执行完所有测试用例。</li>
+<li>用例冗余：在迭代过程中，存在多个用例的功能相似甚至相同。</li>
+<li>用例失效：部分代码修改会影响到被测模块的原有外部接口或内在语义，并导致部分测试用例失效。</li>
+<li>用例缺失：若代码修改生成新的测试需求，则需额外设计新的测试用例。</li>
+</ul>
+<p>回归测试优化：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703762291971-1279d01c-915d-46c0-9d18-6621bf47cf48.png#averageHue=%23f0f0f0&clientId=ubed3c36c-da68-4&from=paste&height=347&id=OL5oX&originHeight=580&originWidth=1003&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=120091&status=done&style=none&taskId=u1487d9c5-be25-4071-83af-c20d3eba466&title=&width=600"
+                      alt="image.png"
+                ></p>
+<ul>
+<li>测试用例修复：识别出因相关模块的外部接口或内在语义发生变更变为失效的用例，并对其进行修复。</li>
+<li>测试用例选择：通过分析代码修改，从已有测试用例中选择出所有可检测代码修改的测试用例，并确保未被选择的测试用例在修改前后程序上的执行行为保持一致。</li>
+<li>测试用例扩充：在代码修改影响分析基础上，对已有测试用例集的充分性进行评估，若不充分则设计新的测试用例以确保对代码修改的充分测试。</li>
+<li>测试用例约减：在满足指定测试需求覆盖前提下，识别并移除冗余测试用例来降低回归测试用例集规模。</li>
+<li>测试用例优先级：当测试预算不足以执行完所有测试用例时，可以基于特定优先级准则，对测试用例进行优先级排序以优化其执行次序，旨在最大化优先级目标。</li>
+</ul>
+<p><strong>测试用例选择（Test Case Selection, TCS）</strong><br>定义：旨在从已有测试用例集中选择出所有可检测代码修改的测试用例。<br>适用场景：适用于因测试预算不足以致不能执行完所有测试用例的测试场景。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703765174834-4cfbd5d1-7dc9-4c9b-9745-8c872f183745.png#averageHue=%23efefef&clientId=ubed3c36c-da68-4&from=paste&height=214&id=u2cd7e3bb&originHeight=405&originWidth=947&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=89602&status=done&style=none&taskId=u3ccc5bbc-4a70-4d7f-b03a-ce02ecd3b99&title=&width=500"
+                      alt="image.png"
+                ><br><strong>测试用例集约减（Test Suite Reduction, TSR）</strong><br>定义：在满足对指定测试需求的覆盖前提下，通过识别并移除冗余测试用例来降低回归测试成本。<br>适用场景：适用于因版本迭代，存在大量功能相似甚至相同的冗余测试用例的测试场景。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703766234922-4ed4f751-ccbe-486f-bfec-41e99a3ef0cb.png#averageHue=%23f0f0f0&clientId=ubed3c36c-da68-4&from=paste&height=222&id=WQm02&originHeight=398&originWidth=896&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=78938&status=done&style=none&taskId=u3530c0dc-11a5-49f0-8c61-53d4279bf55&title=&width=500"
+                      alt="image.png"
+                ><br><strong>测试用例优先级（Test Case Prioritization，TCP）</strong><br>定义：通过设定特定优先级准则（执行时间，代码覆盖等），对测试用例进行优先级排序以优化其执行次序，旨在最大化优先级目标，例如最大化测试用例集的早期缺陷检测速率。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2023/png/32617793/1703764419846-086469e9-5220-416e-a8bc-a13198abaa20.png#averageHue=%23ededed&clientId=ubed3c36c-da68-4&from=paste&height=195&id=x83xz&originHeight=387&originWidth=990&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=78128&status=done&style=none&taskId=uf3d9669d-e52c-4344-8228-4e0aec398c9&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h1 id="测试用例优先级"><a href="#测试用例优先级" class="headerlink" title="测试用例优先级"></a>测试用例优先级</h1><p>测试用例优先级（Test Case Prioritization, TCP）：</p>
+<ul>
+<li>依照某种策略赋予测试用例优先顺序，以提高测试用例集的故障检测速率。</li>
+<li>测试用例优先级技术采用特定的（启发式）算法操纵测试用例，使得优先级较高的用例能够先于优先级低的用例执行。</li>
+</ul>
+<p>测试用例优先级的类型：</p>
+<ul>
+<li>通用测试用例优先级：不具有前序版本信息，如代码变更等，可以应用于回归测试或非回归测试。</li>
+<li>版本相关的测试用例优先级：具有前序版本的信息，如前序测试用例集覆盖信息等，仅用于回归测试。</li>
+</ul>
+<h2 id="优先级排序流程"><a href="#优先级排序流程" class="headerlink" title="优先级排序流程"></a>优先级排序流程</h2><ol>
+<li>特征提取：选择合适的特征表示测试用例。</li>
+<li>优先级策略：操纵测试用例的特征进行优先级排序。 </li>
+<li>评估准则：选择恰当指标评估优先级排序的效果。</li>
+</ol>
+<h3 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h3><ul>
+<li>基于源码特征提取：语句覆盖，分支覆盖，函数覆盖…（用01串表示是否运行到）</li>
+<li>基于文本特征提取</li>
+<li>基于缺陷特征提取</li>
+<li>基于模型特征提取：通过对比修改前后的模型可得出模型差异。在修改后的模型上执行所有测试用例，基于测试用例对模型差异的覆盖信息进行优先级排序。</li>
+</ul>
+<h3 id="优先级策略"><a href="#优先级策略" class="headerlink" title="优先级策略"></a>优先级策略</h3><h4 id="基于贪心的TCP策略"><a href="#基于贪心的TCP策略" class="headerlink" title="基于贪心的TCP策略"></a>基于贪心的TCP策略</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704096414786-0d644f82-5375-44d6-8c5f-f7a85a7f2f76.png#averageHue=%23f8f6f4&clientId=ua38ebd13-9089-4&from=paste&height=263&id=u0fcb8919&originHeight=389&originWidth=739&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=81233&status=done&style=none&taskId=u99a70043-fc48-410c-af7a-8b88f4e8c8f&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704096783957-0ea206ec-d481-44fd-b771-b06d350e52b0.png#averageHue=%23f6f6f6&clientId=ua38ebd13-9089-4&from=paste&height=373&id=u776754d7&originHeight=693&originWidth=1116&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=175275&status=done&style=none&taskId=ue010cc85-8cf2-45c0-bcf9-fa974545c87&title=&width=600"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097110272-3c4d9003-338d-46b7-9b5d-7e77bf37c001.png#averageHue=%23f7f7f6&clientId=ua38ebd13-9089-4&from=paste&height=369&id=u46181aca&originHeight=685&originWidth=1115&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=149748&status=done&style=none&taskId=u47aeba83-e498-4f92-822f-f8cfdd32a2e&title=&width=600"
+                      alt="image.png"
+                ><br>注意：所有语句均被覆盖时要重置数组<br>假设有n个测试用例以及m个代码单元：<br>共需排序n轮，每轮选择一个测试用例。第k轮时，存在n-k+1个待排序用例，每个用例需与m个代码单元计算情况， 那么时间复杂度为O(n2m)。</p>
+<h4 id="基于相似性的TCP策略"><a href="#基于相似性的TCP策略" class="headerlink" title="基于相似性的TCP策略"></a>基于相似性的TCP策略</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097580897-c586e4ff-4c35-4dff-8b4c-abfcef56f0e0.png#averageHue=%23f2f0ee&clientId=ua38ebd13-9089-4&from=paste&height=167&id=u96e4ae02&originHeight=343&originWidth=822&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=102459&status=done&style=none&taskId=u49204b9d-7540-4408-aff9-f0e1935d23c&title=&width=400"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704097636440-d864cdec-ccef-4e0b-ad25-0c18df81ee10.png#averageHue=%23f5f3f2&clientId=ua38ebd13-9089-4&from=paste&height=157&id=u772446bd&originHeight=322&originWidth=822&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=90193&status=done&style=none&taskId=u71e81eb8-56cd-406f-8a13-bebb0ebd827&title=&width=400"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704098053144-9e1a5ce2-3b58-4e18-a3fd-2d14346f9cc9.png#averageHue=%23f1f0ef&clientId=ua38ebd13-9089-4&from=paste&height=256&id=ue55dfe54&originHeight=516&originWidth=1409&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=206816&status=done&style=none&taskId=ueadf83a2-a458-4bd7-a06b-1f3fa2aa3ee&title=&width=700"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704098093841-c8cbeb20-f44d-459f-aebd-0726caa01a10.png#averageHue=%23f0efee&clientId=ua38ebd13-9089-4&from=paste&height=265&id=u5eae556c&originHeight=526&originWidth=1389&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=226090&status=done&style=none&taskId=u16a87950-a3fa-4ec2-b385-57086be99c6&title=&width=700"
+                      alt="image.png"
+                ></p>
+<h4 id="基于搜索的TCP策略"><a href="#基于搜索的TCP策略" class="headerlink" title="基于搜索的TCP策略"></a>基于搜索的TCP策略</h4><p>基本定义：探索用例排序组合的状态空间，以此找到检测错误更快的用例序列。</p>
+<ul>
+<li>遗传算法首先生成N个测试用例序列，之后随机选择一些测试用例序列，两两配对，并随机生成侧用例序列的切割点，互相交换两个用例序列切割点后部分的片段，仅交换相同测试用例的部分，以此保证测试用例序列的完整性和唯一性；</li>
+<li>同时以一定概率选择测试用例，并随机生成两个测试用例位置，进行互换，产生新的测试用例序列，之后计算测试用例序列的评估值,重复上述过程，直到满足条件评估度值最高的测试用例序列。</li>
+</ul>
+<h4 id="基于机器学习的TCP策略"><a href="#基于机器学习的TCP策略" class="headerlink" title="基于机器学习的TCP策略"></a>基于机器学习的TCP策略</h4><p>基本定义：对测试用例特征进行学习，根据预测的缺陷检测概率进行优先级排序。</p>
+<h3 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h3><p>平均故障检测百分比（Average Percentage of Faults Detected， APFD）<br>说明：当给定测试用例的执行次序时，该评测指标可以给出测试用例执行过程中检测到缺陷的平均累计比例。<br>特点：其取值范围介于 0~100%之间，取值越高，则缺陷检测速度越快。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704099930739-f062696c-5a31-4121-8a16-e2977500b0fc.png#averageHue=%23f1eeec&clientId=ua38ebd13-9089-4&from=paste&height=145&id=u15c95e71&originHeight=266&originWidth=732&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=85219&status=done&style=none&taskId=u0d8e6ecd-2515-4ed9-b0a1-8329f55275c&title=&width=400"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704099975792-7ffbd7be-1516-4c8f-807d-d1898e3efdce.png#averageHue=%23f7f7f6&clientId=ua38ebd13-9089-4&from=paste&height=371&id=u2999f134&originHeight=582&originWidth=940&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=100327&status=done&style=none&taskId=uad754cd2-9a93-479f-a8ea-991ac6db56f&title=&width=600"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704100010511-83f37be6-d8ef-498d-824b-573b4de5e59e.png#averageHue=%23f6f6f5&clientId=ua38ebd13-9089-4&from=paste&height=370&id=u59b76871&originHeight=579&originWidth=938&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=99765&status=done&style=none&taskId=u2f7e2c63-1d90-4b58-8104-18c6513fb88&title=&width=600"
+                      alt="image.png"
+                ><br>开销感知平均故障检测百分比（Cost-cognizant Average Percentage of Faults Detected，APFDC）<br>特点：考虑了测试用例的执行开销和缺陷危害程度。<br>归一化平均故障检测百分比（Normalized Average Percentage of Faults Detected，NAPFD）<br>特点：考虑了实际优先级排序场景中：① 测试用例集不能检测到所有缺陷。② 由于资源限制，无法执行所有测试用例。</p>
+<h1 id="测试用例选择"><a href="#测试用例选择" class="headerlink" title="测试用例选择"></a>测试用例选择</h1><p>定义：旨在从已有测试用例集中选择出所有可检测代码修改的测试用例。<br>适用场景：适用于因测试预算不足以致不能执行完所有测试用例的测试场景。<br><strong>基于程序分析的测试选择</strong><br>一种依赖程序分析的测试选择技术。该技术一般通过程序分析技术计算测试代码（方法、用例或套件）与生产代码之间存在的依赖关系，并在代码发生变更时，利用这些依赖关系将所有受到变更影响的测试代码自动选取出来，组成测试子集。</p>
+<ul>
+<li>变更分析：确定发生变更的生产代码，获取变更信息。</li>
+<li>依赖分析：分析代码中存在的依赖关系，获取测试依赖。</li>
+<li>测试筛选：根据变更信息和测试依赖，筛选出受变更影响的测试方法。</li>
+</ul>
+<p>静态测试选择：以静态程序分析为基础实现的测试选择技术。静态（程序）分析是指在没有实际执行程序的情况下对计算机软件程序进行自动化分析的技术。<br>动态测试选择：以动态程序分析为基础实现的测试选择技术。动态（程序）分析通过在真实或虚拟处理器上执行程序来完成对程序行为的分析。<br>进行动态分析时一般需要注意最小化插桩对目标程序的影响。<br>总体上：动态测试选择 &gt; 静态测试选择</p>
+<ul>
+<li>动态分析能够更容易地获得更加丰富的（运行时信息）程序依赖信息，测试选择更加精准、安全；而相比之下静态分析的开销更大，同时存在过拟合现象。</li>
+<li>静态测试选择技术在运行测试阶段的表现一般要优于动态测试选择技术，其原因在于静态分析不需要对代码进行插桩，在执行代码前就能够获得测试选择所需的测试依赖。</li>
+</ul>
+<p><strong>类防火墙算法</strong><br>使用对象关系图来描述测试类和生产类之间关系的算法。对象关系图描绘了面向对象程序中存在的继承、聚合以及关联关系。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704101820786-642f8a74-7bba-4d6a-bb2f-24aace3cd72b.png#averageHue=%23f7f7f7&clientId=ua38ebd13-9089-4&from=paste&height=264&id=ue8a9e64e&originHeight=448&originWidth=1187&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=106652&status=done&style=none&taskId=u46e11c44-45d1-48e0-8450-51b71f235c8&title=&width=700"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704101954736-75b7ad99-2de3-4cbd-a64e-e7a1fd043b0b.png#averageHue=%23f7f6f6&clientId=ua38ebd13-9089-4&from=paste&height=314&id=u8c3b2704&originHeight=505&originWidth=1125&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=135878&status=done&style=none&taskId=u3b3c1c04-005d-46cc-b6e6-c7644b96a7c&title=&width=700"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102024856-3c2078a0-4124-49d7-9084-bce351eafae2.png#averageHue=%23f7f7f7&clientId=ua38ebd13-9089-4&from=paste&height=248&id=uf18273a4&originHeight=441&originWidth=1244&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=153891&status=done&style=none&taskId=u8856d373-8c2a-457c-ad39-f117b870f42&title=&width=700"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102065353-b8c2be69-6862-468f-ac28-b512fe1a4206.png#averageHue=%23f8f8f8&clientId=ua38ebd13-9089-4&from=paste&height=249&id=u3f7215ea&originHeight=442&originWidth=1243&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=144513&status=done&style=none&taskId=u8471a4e2-33a9-4264-8205-30ac13691ec&title=&width=700"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704102142853-f55a324b-5890-4e84-a194-a8bc937072cb.png#averageHue=%23f2f1f1&clientId=ua38ebd13-9089-4&from=paste&height=160&id=u87f358de&originHeight=287&originWidth=899&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=93766&status=done&style=none&taskId=u168fe2ff-5bd4-4c0e-b7a7-d28baa5ab7e&title=&width=500"
+                      alt="image.png"
+                ></p>
+<ul>
+<li>A继承B（A是B的子类），则B改动，A也要重新测试。</li>
+<li>A聚合B（A是B的聚合类），则B改动，A也要重新测试。</li>
+<li>A访问B的数据成员 &#x2F; A要向B传递信息，则B改动，A也要重新测试。此外，A和B要重新集成。</li>
+</ul>
+<p><strong>测试用例优先级 VS 测试用例选择</strong></p>
+<ol>
+<li>优先级技术是对测试用例集进行排序，以最快的速度找到缺陷，提高测试用例集的故障检测率</li>
+<li>选择技术是取测试用例集的子集，能覆盖修改过的代码，降低回归测试的开销并最大化缺陷探测能力</li>
+</ol>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 软件测试-源码测试</li>
+        <li><strong>Author:</strong> Kaleido</li>
+        <li><strong>Created at
+                :</strong> 2024-02-01 00:00:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-04-07 17:03:12
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/02/01/2023-fall-review-软件测试-03/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/02/01/2023-fall-review-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95-02/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">软件测试-移动应用</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/19/2023-spring-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item"></span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">软件测试-源码测试</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95"><span class="nav-text">随机测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95"><span class="nav-text">变异测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">变异体的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="nav-text">变异测试过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8"><span class="nav-text">变异测试应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95"><span class="nav-text">差分测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95"><span class="nav-text">蜕变测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">测试用例优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E6%8E%92%E5%BA%8F%E6%B5%81%E7%A8%8B"><span class="nav-text">优先级排序流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="nav-text">特征提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E7%AD%96%E7%95%A5"><span class="nav-text">优先级策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E9%80%89%E6%8B%A9"><span class="nav-text">测试用例选择</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Kaleido</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

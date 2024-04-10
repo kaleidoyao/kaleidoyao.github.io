@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Kaleido">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/02/01/2023-fall-review-devops/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="名词解释 + 简答 1 DevOps渊源1.1 什么是DevOps？现代软件工程实践为什么需要DevOps？DevOps：开发运维一体化，是软件开发、运维和质量保证三个部门之间的沟通、协作和集成所采用的流程、方法和体系的一个集合。  方法论基础是敏捷软件开发、精益思想以及看板方法 构建了强大的工具链，支持水平自动化 一切皆服务XaaS的理念指导 大量虚拟化技术的使用（开发、测试环境） 以领域驱动设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevOps-REVIEW">
+<meta property="og:url" content="http://example.com/2024/02/01/2023-fall-review-DevOps/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="名词解释 + 简答 1 DevOps渊源1.1 什么是DevOps？现代软件工程实践为什么需要DevOps？DevOps：开发运维一体化，是软件开发、运维和质量保证三个部门之间的沟通、协作和集成所采用的流程、方法和体系的一个集合。  方法论基础是敏捷软件开发、精益思想以及看板方法 构建了强大的工具链，支持水平自动化 一切皆服务XaaS的理念指导 大量虚拟化技术的使用（开发、测试环境） 以领域驱动设">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704344778768-062b7224-635c-4f6e-99e7-113eab8dd0f2.png#averageHue=%23efeeee&clientId=u5273b24a-f453-4&from=paste&height=164&id=u1c6c4a7c&originHeight=296&originWidth=724&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=39112&status=done&style=none&taskId=uda409557-5579-4be5-98cb-bee29e13bfd&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704345078117-143795ab-69e6-4243-9c33-6ebd11b17245.png#averageHue=%23efefef&clientId=u5273b24a-f453-4&from=paste&height=193&id=u3fa67ff9&originHeight=312&originWidth=646&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46122&status=done&style=none&taskId=ud44194ee-06e7-4272-ae90-02789efdfad&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704345169002-fdfa03bd-4cc3-4027-b8cc-502aa1308e01.png#averageHue=%23e8e8e8&clientId=u5273b24a-f453-4&from=paste&height=205&id=u7c298b26&originHeight=384&originWidth=750&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=82350&status=done&style=none&taskId=u3b6bc40d-22d5-498b-a3f9-1af6a9a5a2d&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544687081-3b9d90ee-1313-442a-a499-6739df760a2c.png#averageHue=%23edd780&clientId=u302ffa06-ca37-4&from=paste&height=311&id=u4d606642&originHeight=436&originWidth=700&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=215748&status=done&style=none&taskId=uaf6fe40f-16b6-44e8-a6e7-4146587913f&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544787042-28be6ceb-7c44-41a3-8d45-18c09f6da255.png#averageHue=%23f2ec72&clientId=u302ffa06-ca37-4&from=paste&height=478&id=u155100f4&originHeight=911&originWidth=953&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=262642&status=done&style=none&taskId=u20111b0b-5df5-40d0-91df-7117b5ee6be&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545025742-c7fbf84b-796a-4546-ad3d-bcda4433544c.png#averageHue=%23caa98f&clientId=u302ffa06-ca37-4&from=paste&height=376&id=u3f21fcb9&originHeight=688&originWidth=914&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=100243&status=done&style=none&taskId=u808e4fe0-caee-494a-a66b-bc585174620&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544938571-0b43697e-6610-4489-a0b0-2a1ff5e2587e.png#averageHue=%23f9f8f8&clientId=u302ffa06-ca37-4&from=paste&height=237&id=uaf1f14d5&originHeight=555&originWidth=703&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=19218&status=done&style=none&taskId=u91390ab2-0dea-4176-9221-f157eb4d516&title=&width=300">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545314426-877713b9-fb36-4fa7-92d9-4f574790712f.png#averageHue=%23f4f4f4&clientId=u302ffa06-ca37-4&from=paste&height=336&id=uf4942261&originHeight=858&originWidth=1787&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217754&status=done&style=none&taskId=ue8d4ffca-29cd-4513-9d93-714f667bd26&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545441781-d64e8f30-6f66-4ffc-b966-36afb3cafe4c.png#averageHue=%23f5f4f4&clientId=u302ffa06-ca37-4&from=paste&height=333&id=u9fa898e9&originHeight=734&originWidth=883&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=146818&status=done&style=none&taskId=u0964ed6e-4fce-4fd4-b1da-be5460d9512&title=&width=400">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704546602206-37396243-2808-420e-b53e-a943d648c21a.png#averageHue=%23f1ebe5&clientId=u302ffa06-ca37-4&from=paste&height=329&id=uddd489ec&originHeight=575&originWidth=1224&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=215127&status=done&style=none&taskId=u39d94f5d-8110-4e37-8a02-afb2d31973b&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704352607367-d5ae64ce-6bb8-4c57-b332-88222006712d.png#averageHue=%23dcdbda&clientId=ud50a6d4c-8db2-4&from=paste&height=209&id=ySHOL&originHeight=354&originWidth=1016&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=105364&status=done&style=none&taskId=ua017b64b-4b21-4e29-91ef-1d14c068875&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547698817-e693ec2c-8958-41dc-ad53-28565a9da6a7.png#averageHue=%23f4f4f4&clientId=ud79a8e50-d475-4&from=paste&height=310&id=uadb174db&originHeight=946&originWidth=1527&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=112466&status=done&style=none&taskId=u411ac1d6-9da0-4fac-9aa6-0fe0e814ec0&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547779019-eb0fac98-b9e5-4ecc-9ec6-fd5aea6c28b6.png#averageHue=%23fefdfc&clientId=ud79a8e50-d475-4&from=paste&height=298&id=uc0dc0946&originHeight=1032&originWidth=1732&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=161367&status=done&style=none&taskId=uf734997b-7217-4707-bbe7-4c828490018&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547744250-2e8b299d-baf5-4968-9f9c-e1d789a881ab.png#averageHue=%23c0c9b2&clientId=ud79a8e50-d475-4&from=paste&height=317&id=ud7a7b50b&originHeight=973&originWidth=1534&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=192495&status=done&style=none&taskId=ufb732dd6-4142-4bc7-8688-dff5808f6f0&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547263757-71ff5fca-69b5-4d60-9ad2-7844c6f9e0fb.png#averageHue=%23f2efe7&clientId=ud79a8e50-d475-4&from=paste&height=458&id=u2e259919&originHeight=976&originWidth=1491&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=332282&status=done&style=none&taskId=u66b66f94-e422-4d03-918d-ea4c5c33f7c&title=&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704349741209-b5e779ed-649a-4b5b-aad3-4f2fd4f6d256.png#averageHue=%23dea46a&clientId=uc8313bc8-f083-4&from=paste&height=472&id=u1dd2b66a&originHeight=959&originWidth=1625&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1145682&status=done&style=none&taskId=u66637572-9bd9-40c3-9568-e68ffbf3d0d&title=&width=800">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704350389951-07c80502-bc22-499f-98ac-15024c5e6069.png#averageHue=%23e3e3e3&clientId=uc8313bc8-f083-4&from=paste&height=358&id=u786e0343&originHeight=565&originWidth=790&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=36651&status=done&style=none&taskId=uac0a110f-3152-4dd1-ba6e-e2db88c39cb&title=&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704352607367-d5ae64ce-6bb8-4c57-b332-88222006712d.png#averageHue=%23dcdbda&clientId=ud50a6d4c-8db2-4&from=paste&height=209&id=u58bcc7a2&originHeight=354&originWidth=1016&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=105364&status=done&style=none&taskId=ua017b64b-4b21-4e29-91ef-1d14c068875&title=&width=600">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704353068244-679e8588-902c-4924-ad18-881d0c4c1856.png#averageHue=%23f5f3ef&clientId=ud50a6d4c-8db2-4&from=paste&height=336&id=uc11b9e93&originHeight=536&originWidth=1118&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=180450&status=done&style=none&taskId=uc8aca84e-9896-4126-a244-ff2674f9403&title=&width=700">
+<meta property="article:published_time" content="2024-01-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-04T10:37:37.516Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704344778768-062b7224-635c-4f6e-99e7-113eab8dd0f2.png#averageHue=%23efeeee&clientId=u5273b24a-f453-4&from=paste&height=164&id=u1c6c4a7c&originHeight=296&originWidth=724&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=39112&status=done&style=none&taskId=uda409557-5579-4be5-98cb-bee29e13bfd&title=&width=400">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            DevOps-REVIEW -
+        
+        Kaleido&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Kaleido&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"},"english":{"enable":"enable","family":"Figtree","url":"https://fonts.googleapis.com/css2?family=Figtree&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"enable","links":{"github":"https://github.com/kaleidoyao","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/238750552"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/1/1 00:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Kaleido&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">DevOps-REVIEW</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Kaleido</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-02-01</span>
+        <span class="mobile">2024-02-01</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-03-04 18:37:37</span>
+            <span class="mobile">2024-03-04 18:37:37</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p>名词解释 + 简答</p>
+<h1 id="1-DevOps渊源"><a href="#1-DevOps渊源" class="headerlink" title="1 DevOps渊源"></a>1 DevOps渊源</h1><h2 id="1-1-什么是DevOps？现代软件工程实践为什么需要DevOps？"><a href="#1-1-什么是DevOps？现代软件工程实践为什么需要DevOps？" class="headerlink" title="1.1 什么是DevOps？现代软件工程实践为什么需要DevOps？"></a>1.1 什么是DevOps？现代软件工程实践为什么需要DevOps？</h2><p>DevOps：开发运维一体化，是软件开发、运维和质量保证三个部门之间的沟通、协作和集成所采用的流程、方法和体系的一个集合。</p>
+<ul>
+<li>方法论基础是敏捷软件开发、精益思想以及看板方法</li>
+<li>构建了强大的工具链，支持水平自动化</li>
+<li>一切皆服务XaaS的理念指导</li>
+<li>大量虚拟化技术的使用（开发、测试环境）</li>
+<li>以领域驱动设计为指导的微服务架构方式</li>
+</ul>
+<ol>
+<li>持续性：在软件系统互联网化和服务化高速发展的环境下，软件系统需要持续不断地迭代和开发，以适应快速变化的业务需求。DevOps能够实现持续的交付，使得系统功能的添加或更新不会影响系统的使用。</li>
+<li>复杂性：随着软件系统的复杂性日益提升，质量和安全性的要求也越来越高。DevOps强调通过跨团队的沟通和协作，以及自动化和架构变更等一系列手段，来提高系统的质量和安全性。</li>
+<li>效率和成本：DevOps能够通过自动化和流程优化，有效提高研发效率，节省成本。同时，由于将开发、测试和运维融为一体，能更快地实现产品的交付。</li>
+<li>打破团队壁垒：传统的开发、测试和运维团队之间存在沟通和协作的难题，DevOps能够有效地打破这些壁垒，实现团队之间的高效合作。</li>
+</ol>
+<h2 id="1-2-DevOps-演化路径（Three-Ways）"><a href="#1-2-DevOps-演化路径（Three-Ways）" class="headerlink" title="1.2 DevOps 演化路径（Three Ways）"></a>1.2 DevOps 演化路径（Three Ways）</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704344778768-062b7224-635c-4f6e-99e7-113eab8dd0f2.png#averageHue=%23efeeee&clientId=u5273b24a-f453-4&from=paste&height=164&id=u1c6c4a7c&originHeight=296&originWidth=724&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=39112&status=done&style=none&taskId=uda409557-5579-4be5-98cb-bee29e13bfd&title=&width=400"
+                      alt="image.png"
+                ></p>
+<p><strong>概念</strong></p>
+<ul>
+<li>充分理解工作流（从开发到IT运维再到客户的整个自左向右的工作流）</li>
+<li>流量最大化（小批量、缩小任务间隔、缺陷控制[即不让缺陷流向下游工作重心]）</li>
+<li>不断为了整体目标[相对于开发功能完成率等局部目标]的实现而优化工作流</li>
+</ul>
+<p><strong>部分关键实践和方法</strong></p>
+<ul>
+<li>持续构建、集成以及交付</li>
+<li>按需创建环境</li>
+<li>限制半成品（WIP）</li>
+<li>构建支持顺利变更的安全系统</li>
+<li>看板（任务可视化）</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704345078117-143795ab-69e6-4243-9c33-6ebd11b17245.png#averageHue=%23efefef&clientId=u5273b24a-f453-4&from=paste&height=193&id=u3fa67ff9&originHeight=312&originWidth=646&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46122&status=done&style=none&taskId=ud44194ee-06e7-4272-ae90-02789efdfad&title=&width=400"
+                      alt="image.png"
+                ><br><strong>概念</strong></p>
+<ul>
+<li>价值流（开发-运维-客户）的快速持续反馈</li>
+<li>避免问题再次发生（或者快速发现和修复）</li>
+<li>从源头上保证质量</li>
+</ul>
+<p><strong>部分关键实践和方法</strong></p>
+<ul>
+<li>适时停止生产线</li>
+<li>持续改进</li>
+<li>构建自动化测试套件，确保代码随时可部署</li>
+<li>Dev和Ops共享目标和pain</li>
+<li>远程监测手段（自动化）</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704345169002-fdfa03bd-4cc3-4027-b8cc-502aa1308e01.png#averageHue=%23e8e8e8&clientId=u5273b24a-f453-4&from=paste&height=205&id=u7c298b26&originHeight=384&originWidth=750&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=82350&status=done&style=none&taskId=u3b6bc40d-22d5-498b-a3f9-1af6a9a5a2d&title=&width=400"
+                      alt="image.png"
+                ><br><strong>概念</strong></p>
+<ul>
+<li>创建培育良好的文化（不断尝试、重复和练习）</li>
+</ul>
+<p><strong>部分关键实践和方法</strong></p>
+<ul>
+<li>营造勇于创新、敢于冒险以及高度信任的企业文化</li>
+<li>确保至少20%资源投入在非功能需求上</li>
+<li>不断鼓励和强化改进</li>
+</ul>
+<h2 id="1-3-关键术语"><a href="#1-3-关键术语" class="headerlink" title="1.3 关键术语"></a>1.3 关键术语</h2><ol>
+<li>持续集成（Continuous Integration，CI）：这是一种开发实践，要求开发人员每天多次将代码集成到共享代码库中。每次检入都会通过自动化构建进行验证，这样团队就可以提早发现问题。</li>
+<li>持续交付（Continuous Delivery，CD）：这是一套流程和实践，可以显著减少软件生产过程中的浪费，加速高质量功能的交付，并在您的业务和用户之间建立快速有效的反馈循环。</li>
+<li>持续部署（Continuous Deployment，CD）：意味着可以立即部署应用并向用户展示更改。</li>
+<li>基础设施即服务（Infrastructure as a Service, IaaS）：这种模式提供了云主机的虚拟机，通常在“按你所用”基础上计费。用户可以完全控制这些机器，但需要自己安装和配置所需的中间件和应用程序。</li>
+<li>平台即服务（Platform as a service, PaaS）：PaaS提供商为应用开发人员提供开发环境。服务提供商通常为开发提供工具套件和标准，并提供分发和支付渠道。</li>
+<li>软件即服务（Software as a Service, SaaS）：这是一种软件许可和交付模型，其中软件按订阅方式许可，并集中托管。</li>
+<li>Docker：Docker容器将一个软件封装在一个完整的文件系统中，该文件系统包含它运行所需的一切：代码、运行时、系统工具、系统库——任何可以安装在服务器上的东西。这保证了不管是在什么样的情况下，软件总是能够以相同的方式运行。</li>
+<li>A&#x2F;B testing：一种技术，其中新功能或功能的不同变体可用于不同的用户集，并通过比较指标和用户行为进行评估。</li>
+</ol>
+<h1 id="2-云计算相关"><a href="#2-云计算相关" class="headerlink" title="2 云计算相关"></a>2 云计算相关</h1><h2 id="2-1-什么是云计算？为什么需要云计算？"><a href="#2-1-什么是云计算？为什么需要云计算？" class="headerlink" title="2.1 什么是云计算？为什么需要云计算？"></a>2.1 什么是云计算？为什么需要云计算？</h2><p>云计算是一种按量付费的模式，这种模式可以提供可用的、边界的、按序的网络访问，进入可配置的计算资源共享池（资源包括<strong>服务器、网络、存储、应用软件、服务</strong>），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。</p>
+<ol>
+<li>灵活性：用户可以拓展服务以满足自身需求，定制应用，以及通过互联网连接从任何地方访问云服务。</li>
+</ol>
+<ul>
+<li>可伸缩性：可按需缩放云基础架构，以支持不断变化的工作负载。</li>
+<li>存储选项：用户可以选择公有、私有或混合存储产品，具体取决于安全要求和其他方面的考虑。</li>
+<li>控制选择：组织可以通过“即服务”选项，决定自己的控制水平。这些选项包括<a class="link"   target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/topics/saas" >软件即服务 (SaaS) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>、<a class="link"   target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/topics/paas" >平台即服务 (PaaS) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 和<a class="link"   target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/topics/iaas" >基础架构即服务 (IaaS) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+</ul>
+<ol start="2">
+<li>高效率：企业用户可以快速将应用推向市场，而无需担心底层基础架构的成本或维护工作。</li>
+</ol>
+<ul>
+<li>可访问性：可从几乎任何与互联网连接的设备访问基于云的应用和数据。</li>
+<li>节约设备成本：云计算使用远程资源，从而帮助组织节省了服务器和其他设备的成本。 </li>
+<li>加快产品面市速度：在云环境中进行开发使用户能够更快地将应用投入市场。</li>
+</ul>
+<ol start="3">
+<li>战略价值：云服务可以提供最具创新性的技术，帮助企业塑造竞争优势。</li>
+</ol>
+<ul>
+<li>协作：全球访问意味着团队可以在分布广泛的地点开展协作。 </li>
+<li>定期更新：服务提供商会定期更新服务，为用户提供最新的技术。 </li>
+<li>竞争优势：与竞争对手相比，企业无需耗费 IT 资源来管理基础架构，而是可以灵活发展，领先一步。</li>
+</ul>
+<h2 id="2-2-什么是云原生？"><a href="#2-2-什么是云原生？" class="headerlink" title="2.2 什么是云原生？"></a>2.2 什么是云原生？</h2><p>云原生是指在云计算环境中构建、部署和管理现代应用程序的软件方法。云原生是一个组合词，即cloud + native。Cloud表示应用程序位于云中，而不是传统的数据中心；Native表示用程序从设计之初即考虑到云的环境，原生为云而设计，在云上以最佳姿势运行，充分利用和发挥云平台的弹性和分布式优势。云原生可概括为4个要点：DevOps + 持续交付 + 微服务 + 容器化。</p>
+<h2 id="2-3-云计算、雾计算和边缘计算范式"><a href="#2-3-云计算、雾计算和边缘计算范式" class="headerlink" title="2.3 云计算、雾计算和边缘计算范式"></a>2.3 云计算、雾计算和边缘计算范式</h2><ol>
+<li><strong>云计算</strong>：一种利用互联网实现随时随地、按需、便捷地使用共享计算设施、存储设备、应用程序等资源的计算模式。</li>
+</ol>
+<ul>
+<li>优点：灵活性、高效率、战略价值</li>
+<li>缺点：<br>延时：由于数据必须在用户和远程数据中心之间传输，可能会有延时<br>数据安全和隐私问题：虽然云服务提供商都提供了强大的安全体系，但数据的控制权仍在服务提供商手中</li>
+<li>适用场景：大数据处理、WEB应用部署，客户关系管理(CRM)等</li>
+</ul>
+<ol start="2">
+<li><strong>雾计算</strong>：在该模式中，数据处理和应用程序集中在网络边缘的设备中，而不是几乎全部保存在云中，是云计算的延伸概念。</li>
+</ol>
+<ul>
+<li>优点：填补云和物之间的差距：安全、认知、敏捷、低延迟、高效率</li>
+<li>缺点：设备管理复杂：需要配置和管理大量的设备</li>
+<li>适用场景：IOT等需要实时响应和处理海量数据的场景</li>
+</ul>
+<ol start="3">
+<li><strong>边缘计算</strong>：是指利用靠近数据源的边缘地带来完成的运算程序。</li>
+</ol>
+<ul>
+<li>优点：<br>减少延迟：数据处理在网络边缘，减少了数据在用户和数据中心之间的传输，进而降低延迟<br>数据安全：数据在本地处理，减少了数据泄露的风险</li>
+<li>缺点：边缘设备性能有限，不适合大规模数据处理</li>
+<li>适用场景：视频监控、智能家居、智慧城市、智能交通等</li>
+</ul>
+<h2 id="2-4-运维标准"><a href="#2-4-运维标准" class="headerlink" title="2.4 运维标准"></a>2.4 运维标准</h2><h3 id="2-4-1-CMMI-SVC"><a href="#2-4-1-CMMI-SVC" class="headerlink" title="2.4.1 CMMI-SVC"></a>2.4.1 CMMI-SVC</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544687081-3b9d90ee-1313-442a-a499-6739df760a2c.png#averageHue=%23edd780&clientId=u302ffa06-ca37-4&from=paste&height=311&id=u4d606642&originHeight=436&originWidth=700&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=215748&status=done&style=none&taskId=uaf6fe40f-16b6-44e8-a6e7-4146587913f&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h3 id="2-4-2-ITIL"><a href="#2-4-2-ITIL" class="headerlink" title="2.4.2 ITIL"></a>2.4.2 ITIL</h3><p>ITIL，全称Information Technology Infrastructure Library（信息技术基础架构库）<br>ITIL最佳实践主要围绕5个部分：</p>
+<ul>
+<li>服务战略</li>
+<li>服务设计</li>
+<li>服务转换</li>
+<li>服务运营</li>
+<li>服务改进</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544787042-28be6ceb-7c44-41a3-8d45-18c09f6da255.png#averageHue=%23f2ec72&clientId=u302ffa06-ca37-4&from=paste&height=478&id=u155100f4&originHeight=911&originWidth=953&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=262642&status=done&style=none&taskId=u20111b0b-5df5-40d0-91df-7117b5ee6be&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h3 id="2-4-3-ITSS"><a href="#2-4-3-ITSS" class="headerlink" title="2.4.3 ITSS"></a>2.4.3 ITSS</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545025742-c7fbf84b-796a-4546-ad3d-bcda4433544c.png#averageHue=%23caa98f&clientId=u302ffa06-ca37-4&from=paste&height=376&id=u3f21fcb9&originHeight=688&originWidth=914&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=100243&status=done&style=none&taskId=u808e4fe0-caee-494a-a66b-bc585174620&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h3 id="2-4-4-ISO20000"><a href="#2-4-4-ISO20000" class="headerlink" title="2.4.4 ISO20000"></a>2.4.4 ISO20000</h3><p>ISO20000定义了“策划-实施-检查-处置“（PDCA）方法论应用于服务管理体系和服务的所有部分：</p>
+<ul>
+<li>P-策划：建立书面和协定的服务管理体系； </li>
+<li>D-实施：实施和运行服务管理体系，以设计、转换、交付和改进服务；</li>
+<li>C-检查：根据方针、目标、计划和服务需求，对服务管理体系进行监视、测量和回顾，并报告结果；</li>
+<li>A-处置：采取措施，以持续改进服务管理体系和服务的绩效。</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704544938571-0b43697e-6610-4489-a0b0-2a1ff5e2587e.png#averageHue=%23f9f8f8&clientId=u302ffa06-ca37-4&from=paste&height=237&id=uaf1f14d5&originHeight=555&originWidth=703&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=19218&status=done&style=none&taskId=u91390ab2-0dea-4176-9221-f157eb4d516&title=&width=300"
+                      alt="image.png"
+                ></p>
+<h2 id="2-5-传统运维的转型之路"><a href="#2-5-传统运维的转型之路" class="headerlink" title="2.5 传统运维的转型之路"></a>2.5 传统运维的转型之路</h2><ul>
+<li>互联网式运维：快速迭代、快速发布、灰度发布、安全</li>
+<li>云计算下的运维：云计算系统本身的运维和基于云计算的应用系统运维；快速部署、快速更新、实时监控、自动化、动态扩容或者缩小系统部署、适应平台差异</li>
+<li>大规模下的运维：标准化、自动化、智能化</li>
+<li>“提前”运维：介入系统可监控性、可运维性方面的设计；将系统的监控和运维接口设计提前到软件开发设计阶段</li>
+</ul>
+<h1 id="3-软件架构演进"><a href="#3-软件架构演进" class="headerlink" title="3 软件架构演进"></a>3 软件架构演进</h1><h2 id="3-1-软件架构"><a href="#3-1-软件架构" class="headerlink" title="3.1 软件架构"></a>3.1 软件架构</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545314426-877713b9-fb36-4fa7-92d9-4f574790712f.png#averageHue=%23f4f4f4&clientId=u302ffa06-ca37-4&from=paste&height=336&id=uf4942261&originHeight=858&originWidth=1787&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217754&status=done&style=none&taskId=ue8d4ffca-29cd-4513-9d93-714f667bd26&title=&width=700"
+                      alt="image.png"
+                ><br>软件架构所需要解决的根本问题是在软件实际生产环境的诸多限制条件下，对于各种软件质量属性进行取舍和权衡，并为了满足软件架构需求（即质量属性）寻找合适的“战术”。</p>
+<h2 id="3-2-软件架构的4-1视图"><a href="#3-2-软件架构的4-1视图" class="headerlink" title="3.2 软件架构的4+1视图"></a>3.2 软件架构的4+1视图</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704545441781-d64e8f30-6f66-4ffc-b966-36afb3cafe4c.png#averageHue=%23f5f4f4&clientId=u302ffa06-ca37-4&from=paste&height=333&id=u9fa898e9&originHeight=734&originWidth=883&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=146818&status=done&style=none&taskId=u0964ed6e-4fce-4fd4-b1da-be5460d9512&title=&width=400"
+                      alt="image.png"
+                ></p>
+<ul>
+<li>逻辑视图：面向对象的分解<ul>
+<li>体现功能需求&#x2F;服务，一般用类图或ER图来描述</li>
+</ul>
+</li>
+<li>进程视图：进程分解<ul>
+<li>进程视图主要从性能，可用性等一些非功能性需求的角度去描述系统</li>
+</ul>
+</li>
+<li>开发视图：子系统分解<ul>
+<li>开发视图主要关注在软件开发实现过程中的软件模块及其组织方式</li>
+</ul>
+</li>
+<li>物理（部署）视图：建立软件和硬件之间的映射关系<ul>
+<li>这个视图中，进程视图的进程会被映射到一组基于网络的计算节点上</li>
+</ul>
+</li>
+<li>场景视图：综合所有的视图<ul>
+<li>场景视图是把以上一些视图的设计元素结合在一起，利用对象场景图和对象交互图来描述系统中一些重要用例的场景，对最重要的一些需求进行抽象</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>视图</th>
+<th>逻辑</th>
+<th>进程</th>
+<th>开发</th>
+<th>物理</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>组件</td>
+<td>类</td>
+<td>任务、进程</td>
+<td>模块、子系统</td>
+<td>节点</td>
+<td>步骤、脚本</td>
+</tr>
+<tr>
+<td>连接器</td>
+<td>关联、继承、包含</td>
+<td>消息、广播、RPC等</td>
+<td>依赖</td>
+<td>通信介质、WAN、LAN等</td>
+<td></td>
+</tr>
+<tr>
+<td>涉众</td>
+<td>最终用户</td>
+<td>系统设计和集成人员</td>
+<td>开发人员、技术经理</td>
+<td>系统设计人员</td>
+<td>开发人员和最终用户</td>
+</tr>
+<tr>
+<td>关注点</td>
+<td>功能点</td>
+<td>性能、可用性、容错性、完整性</td>
+<td>团队组织划分、重用、可移植性</td>
+<td>性能、可用性、横向扩展性</td>
+<td>可理解性</td>
+</tr>
+</tbody></table>
+<h2 id="3-3-不同架构的优缺点和适用场景"><a href="#3-3-不同架构的优缺点和适用场景" class="headerlink" title="3.3 不同架构的优缺点和适用场景"></a>3.3 不同架构的优缺点和适用场景</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704546602206-37396243-2808-420e-b53e-a943d648c21a.png#averageHue=%23f1ebe5&clientId=u302ffa06-ca37-4&from=paste&height=329&id=uddd489ec&originHeight=575&originWidth=1224&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=215127&status=done&style=none&taskId=u39d94f5d-8110-4e37-8a02-afb2d31973b&title=&width=700"
+                      alt="image.png"
+                ></p>
+<ol>
+<li>单体架构：</li>
+</ol>
+<ul>
+<li>优点：<br>具有非常简单的架构风格，易于构建和测试。<br>以封闭的形式统一部署，便于管理和控制。</li>
+<li>缺点：<br>作为一个紧耦合的”大泥球”，一旦需要增加或修改功能，可能涉及大量的改动工作。<br>难以应对大规模需求的扩展。</li>
+<li>适用场景：业务发展早期，对于规模不大且变化不频繁的业务是一个不错的选择。</li>
+</ul>
+<ol start="2">
+<li>分层架构：</li>
+</ol>
+<ul>
+<li>优点：<br>抽象和分层使得架构更加清晰，便于理解和维护。<br>通过采用结构化的思考方式，能够清晰地划分不同的业务逻辑。</li>
+<li>缺点：<br>分层架构的紧耦合性可能导致“重复造轮子”，降低开发效率。<br>修改一层可能会影响其他层，维护成本较高。</li>
+<li>适用场景：业务快速增长的阶段，需要划分清晰的业务逻辑层和数据访问层来提高系统的可维护性。</li>
+</ul>
+<ol start="3">
+<li>SOA架构：</li>
+</ol>
+<ul>
+<li>优点：<br>使用消息通信机制提供服务，使得系统的组件化和解耦更加严密。<br>ESB企业服务总线能实现服务间的灵活对接。</li>
+<li>缺点：<br>SOA架构可能会引入重量级的ESB，使得系统复杂性增加。<br>由于服务共享数据库，容易产生数据管理的矛盾和冲突。</li>
+<li>适用场景：适合大型企业级应用，不断增长的业务规模需要解决复杂的服务依赖关系。</li>
+</ul>
+<ol start="4">
+<li>分布式架构：</li>
+</ol>
+<ul>
+<li>优点：<br>服务解耦程度高，每个服务的调试、部署和扩展很灵活。<br>非共享数据库使得数据管理更加可控。</li>
+<li>缺点：<br>系统设计和维护复杂度高，需要考虑服务间的通信和数据一致性等问题。</li>
+<li>适用场景：适合大型互联网公司，需要对服务进行灵活调度，快速迭代的业务。</li>
+</ul>
+<h2 id="3-4-微服务架构-VS-SOA"><a href="#3-4-微服务架构-VS-SOA" class="headerlink" title="3.4 微服务架构 VS SOA"></a>3.4 微服务架构 VS SOA</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704352607367-d5ae64ce-6bb8-4c57-b332-88222006712d.png#averageHue=%23dcdbda&clientId=ud50a6d4c-8db2-4&from=paste&height=209&id=ySHOL&originHeight=354&originWidth=1016&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=105364&status=done&style=none&taskId=ua017b64b-4b21-4e29-91ef-1d14c068875&title=&width=600"
+                      alt="image.png"
+                ></p>
+<h1 id="4-软件过程方法"><a href="#4-软件过程方法" class="headerlink" title="4 软件过程方法"></a>4 软件过程方法</h1><h2 id="4-1-PSP-TSP过程"><a href="#4-1-PSP-TSP过程" class="headerlink" title="4.1 PSP&#x2F;TSP过程"></a>4.1 PSP&#x2F;TSP过程</h2><ul>
+<li>PSP（Personal Software Process，个体软件过程）</li>
+<li>TSP（Team Software Process，团队软件过程）</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547698817-e693ec2c-8958-41dc-ad53-28565a9da6a7.png#averageHue=%23f4f4f4&clientId=ud79a8e50-d475-4&from=paste&height=310&id=uadb174db&originHeight=946&originWidth=1527&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=112466&status=done&style=none&taskId=u411ac1d6-9da0-4fac-9aa6-0fe0e814ec0&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547779019-eb0fac98-b9e5-4ecc-9ec6-fd5aea6c28b6.png#averageHue=%23fefdfc&clientId=ud79a8e50-d475-4&from=paste&height=298&id=uc0dc0946&originHeight=1032&originWidth=1732&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=161367&status=done&style=none&taskId=uf734997b-7217-4707-bbe7-4c828490018&title=&width=500"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547744250-2e8b299d-baf5-4968-9f9c-e1d789a881ab.png#averageHue=%23c0c9b2&clientId=ud79a8e50-d475-4&from=paste&height=317&id=ud7a7b50b&originHeight=973&originWidth=1534&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=192495&status=done&style=none&taskId=ufb732dd6-4142-4bc7-8688-dff5808f6f0&title=&width=500"
+                      alt="image.png"
+                ></p>
+<h2 id="4-2-挣值管理方法"><a href="#4-2-挣值管理方法" class="headerlink" title="4.2 挣值管理方法"></a>4.2 挣值管理方法</h2><p>项目的挣值管理方法(Earned Value Management，简称EVM)是用来客观度量项目进度的一种项目管理方法。</p>
+<ul>
+<li>每项任务实现附以一定价值（credit）</li>
+<li>100%完成该项任务，就获得相应价值</li>
+</ul>
+<p>EVM采用与进度计划、成本预算和实际成本相联系的三个独立的变量，进行项目绩效测量。</p>
+<h2 id="4-3-敏捷方法XP、SCRUM"><a href="#4-3-敏捷方法XP、SCRUM" class="headerlink" title="4.3 敏捷方法XP、SCRUM"></a>4.3 敏捷方法XP、SCRUM</h2><p>极限编程（eXtreme Programming）是敏捷过程中最负盛名的一个，其名称“极限”二字的含义是指把好的开发实践运用到极致。 </p>
+<ul>
+<li>小型发布：XP倾向于进行小型且频繁的发布，以便在整个开发过程中获得反馈。这些发布通常是直接面向客户的，尽管它们也可能仅在内部进行。</li>
+<li>结对编程：所有编程活动都是由并排坐着的两名开发者共同完成的。在XP中，没有单独编程的工作。</li>
+<li>测试驱动：极限编程强调“测试先行”。在编码之前，应该首先设计好测试方案，然后再编程，直至所有测试都获得通过之后才可以结束工作。</li>
+</ul>
+<p>Scrum是一种迭代式增量软件开发过程，通常用于敏捷软件开发。</p>
+<ul>
+<li>三个角色：Scrum Master、产品负责人、团队</li>
+<li>三个工件：产品待办事项、Sprint待办事项、可交付产品增量</li>
+<li>五大仪式：冲刺、Sprint规划、Sprint评审、每日站会、回顾</li>
+<li>五大价值观：勇气、开放、专注、承诺、尊重</li>
+</ul>
+<h2 id="4-4-精益产品开发屋"><a href="#4-4-精益产品开发屋" class="headerlink" title="4.4 精益产品开发屋"></a>4.4 精益产品开发屋</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704547263757-71ff5fca-69b5-4d60-9ad2-7844c6f9e0fb.png#averageHue=%23f2efe7&clientId=ud79a8e50-d475-4&from=paste&height=458&id=u2e259919&originHeight=976&originWidth=1491&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=332282&status=done&style=none&taskId=u66b66f94-e422-4d03-918d-ea4c5c33f7c&title=&width=700"
+                      alt="image.png"
+                ></p>
+<h1 id="5-DevSecOps"><a href="#5-DevSecOps" class="headerlink" title="5 DevSecOps"></a>5 DevSecOps</h1><h2 id="5-1-DevSecOps的CAMS原则"><a href="#5-1-DevSecOps的CAMS原则" class="headerlink" title="5.1 DevSecOps的CAMS原则"></a>5.1 DevSecOps的CAMS原则</h2><ol>
+<li><strong>Culture 文化：</strong></li>
+</ol>
+<ul>
+<li>在观念上，DevSecOps强调人人对安全负责，发现并解决安全问题不再是安全人员独有的任务。</li>
+<li>开发人员需要对自己所生产的代码的安全性负责，参与交付的人员也需要对最终交付的软件产品的安全性负责。</li>
+<li>所有参与软件生命周期的工作人员都需要提升自身的安全意识和技能，在完成各自阶段任务时就保障足够的安全性要求。</li>
+<li>DevSecOps需要Dev, Sec, Ops三个团队之间的理解与配合。安全团队也不再像以往一样位于整个工作流的末端，而是尽可能将安全左移。</li>
+</ul>
+<ol start="2">
+<li><strong>Automation 自动化：</strong></li>
+</ol>
+<ul>
+<li>DevOps自动化几乎遍布整个DevOps生命周期，组织通过使用自动化工具或自动化手段实现持续部署、持续集成、自动监控、自动修复等活动， 以实现快速发布、快速迭代等目的。</li>
+<li>DevSecOps在此基础上，也更加强调安全保障活动的高度自动化，这种自动化是为了能够在不牺牲软件安全性的条件下跟上DevOps的速度和规模，避免由于人为干预而可能导致的安全问题。</li>
+<li>通过整合自动化的安全检测工具和监控框架等来形成完整的DevSecOps安全工具链和反馈环，达到全方位保障软件产品的安全性要求。</li>
+</ul>
+<ol start="3">
+<li><strong>Measurement 度量：</strong></li>
+</ol>
+<ul>
+<li>在DevOps中，度量是提高流程可见性的一个重要手段，通过相关的度量指标（如关键性能指标，新版本对系统稳定性影响指标等），任何人都能够知道在什么时候发生了什么事情，进而了解到当前系统的状态，并及时思考如何进行改进等。</li>
+<li>在DevSecOps环境下，我们仍然需要始终掌握项目进展、系统状态等信息，同时，DevSecOps也更加推崇使用度量标准来评估、控制和改善整个软件开发过程。如组织可以根据对漏洞的定位和修复时间信息来衡量DevSecOps所产生的效果并考验组织的应变能力。</li>
+</ul>
+<ol start="4">
+<li><strong>Sharing 分享：</strong></li>
+</ol>
+<ul>
+<li>团队之间分享想法和问题是合作的前提，在DevOps中，开发人员和运维人员通过共享知识、工具和技术来管理软件的整个生命周期。</li>
+<li>同样的，在DevSecOps中，开发团队、运维团队和安全团队仍需要通过共享工具和技能的方式来协同保障软件的安全开发和运维。</li>
+<li>安全团队需要为开发团队和运维团队找到合适的、统一的安全工具来满足日常的安全开发活动，三个团队通过共享的安全工具来将安全检查左移到开发阶段，让安全问题在早期就能够得以发现并解决。</li>
+</ul>
+<h2 id="5-2-DevSecOps典型实践"><a href="#5-2-DevSecOps典型实践" class="headerlink" title="5.2 DevSecOps典型实践"></a>5.2 DevSecOps典型实践</h2><h3 id="5-2-1-阶段实践"><a href="#5-2-1-阶段实践" class="headerlink" title="5.2.1 阶段实践"></a>5.2.1 阶段实践</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704349741209-b5e779ed-649a-4b5b-aad3-4f2fd4f6d256.png#averageHue=%23dea46a&clientId=uc8313bc8-f083-4&from=paste&height=472&id=u1dd2b66a&originHeight=959&originWidth=1625&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1145682&status=done&style=none&taskId=u66637572-9bd9-40c3-9568-e68ffbf3d0d&title=&width=800"
+                      alt="image.png"
+                ></p>
+<h3 id="5-2-2-通用实践"><a href="#5-2-2-通用实践" class="headerlink" title="5.2.2 通用实践"></a>5.2.2 通用实践</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704350389951-07c80502-bc22-499f-98ac-15024c5e6069.png#averageHue=%23e3e3e3&clientId=uc8313bc8-f083-4&from=paste&height=358&id=u786e0343&originHeight=565&originWidth=790&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=36651&status=done&style=none&taskId=uac0a110f-3152-4dd1-ba6e-e2db88c39cb&title=&width=500"
+                      alt="image.png"
+                ><br>事件管理：对安全事件采取标准化的方式进行响应</p>
+<h2 id="5-3-DevSecOps典型工具"><a href="#5-3-DevSecOps典型工具" class="headerlink" title="5.3 DevSecOps典型工具"></a>5.3 DevSecOps典型工具</h2><ul>
+<li>创建阶段 - 开源组件安全扫描：FOSSID、BlackDuck</li>
+<li>验证阶段 - 静态应用程序安全检测：SonarQube、Checkmarx</li>
+<li>验证阶段 - 动态应用程序安全检测：Nessus</li>
+<li>验证阶段 - 交互式应用程序安全检测：Seeker</li>
+</ul>
+<h1 id="6-微服务架构"><a href="#6-微服务架构" class="headerlink" title="6 微服务架构"></a>6 微服务架构</h1><p>微服务架构是把应用程序功能性分解为一组服务的架构风格，每一个服务都是由一组专注、内聚的功能职责组成。<br>微服务架构是一种将单体应用拆分为细粒度的服务，并使其运行在独立进程中，服务之间采用轻量级通信机制（如HTTP RESTful API）进行交互的架构风格。这些服务围绕系统的业务能力构建，且可以通过全自动的部署机制进行独立部署。服务可以进行分布式管理，从而支持不同的编程语言进行开发和不同的数据存储技术进行存储。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704352607367-d5ae64ce-6bb8-4c57-b332-88222006712d.png#averageHue=%23dcdbda&clientId=ud50a6d4c-8db2-4&from=paste&height=209&id=u58bcc7a2&originHeight=354&originWidth=1016&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=105364&status=done&style=none&taskId=ua017b64b-4b21-4e29-91ef-1d14c068875&title=&width=600"
+                      alt="image.png"
+                ></p>
+<h2 id="6-1-微服务拆分原则、策略和方法"><a href="#6-1-微服务拆分原则、策略和方法" class="headerlink" title="6.1 微服务拆分原则、策略和方法"></a>6.1 微服务拆分原则、策略和方法</h2><h3 id="6-1-1-拆分原则"><a href="#6-1-1-拆分原则" class="headerlink" title="6.1.1 拆分原则"></a>6.1.1 拆分原则</h3><p>单一职责原则：</p>
+<ul>
+<li>高内聚：每个微服务处理的业务逻辑单一，与不相关的业务逻辑隔离</li>
+<li>低耦合：不同微服务之间取消不必要的依赖，降低服务间协作成本</li>
+</ul>
+<p>服务依赖原则：</p>
+<ul>
+<li>区分核心&#x2F;非核心服务（依据业务重要性划分）</li>
+<li>实际落地时，应尽量避免核心服务依赖于非核心服务，避免因非核心服务降级或中断而影响到核心服务</li>
+</ul>
+<p> 服务自治原则：</p>
+<ul>
+<li>每个核心服务都拥有独立的全功能团队负责整个生命周期（需求、设计、 实现、验证、发布、运维）</li>
+</ul>
+<h3 id="6-1-2-拆分策略"><a href="#6-1-2-拆分策略" class="headerlink" title="6.1.2 拆分策略"></a>6.1.2 拆分策略</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2024/png/32617793/1704353068244-679e8588-902c-4924-ad18-881d0c4c1856.png#averageHue=%23f5f3ef&clientId=ud50a6d4c-8db2-4&from=paste&height=336&id=uc11b9e93&originHeight=536&originWidth=1118&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=180450&status=done&style=none&taskId=uc8aca84e-9896-4126-a244-ff2674f9403&title=&width=700"
+                      alt="image.png"
+                ></p>
+<h2 id="6-2-领域驱动设计（DDD）"><a href="#6-2-领域驱动设计（DDD）" class="headerlink" title="6.2 领域驱动设计（DDD）"></a>6.2 领域驱动设计（DDD）</h2><p>层次、战略设计、战术设计</p>
+<ul>
+<li>战略设计：限界上下文、通用语言，子域</li>
+<li>战术设计：聚合、实体、值对象、资源库、领域服务、领域事件、模块</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e8%ae%be%e8%ae%a1%e5%ae%9e%e8%b7%b5%ef%bc%88%e5%ae%8c%ef%bc%89/101%20%e5%ae%9e%e8%b7%b5%20%20%e5%91%98%e5%b7%a5%e4%b8%8a%e4%b8%8b%e6%96%87%e7%9a%84%e9%a2%86%e5%9f%9f%e5%bb%ba%e6%a8%a1.md" >https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e8%ae%be%e8%ae%a1%e5%ae%9e%e8%b7%b5%ef%bc%88%e5%ae%8c%ef%bc%89/101%20%e5%ae%9e%e8%b7%b5%20%20%e5%91%98%e5%b7%a5%e4%b8%8a%e4%b8%8b%e6%96%87%e7%9a%84%e9%a2%86%e5%9f%9f%e5%bb%ba%e6%a8%a1.md <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>康威定律：指出组织设计系统来反映他们自己的沟通结构（组织形式等同系统设计）</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> DevOps-REVIEW</li>
+        <li><strong>Author:</strong> Kaleido</li>
+        <li><strong>Created at
+                :</strong> 2024-02-01 00:00:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-03-04 18:37:37
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/02/01/2023-fall-review-DevOps/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/02/19/111/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">111</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/02/01/2023-fall-review-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95-01/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">软件测试 - AI测试</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">DevOps-REVIEW</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-DevOps%E6%B8%8A%E6%BA%90"><span class="nav-text">1 DevOps渊源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFDevOps%EF%BC%9F%E7%8E%B0%E4%BB%A3%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81DevOps%EF%BC%9F"><span class="nav-text">1.1 什么是DevOps？现代软件工程实践为什么需要DevOps？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-DevOps-%E6%BC%94%E5%8C%96%E8%B7%AF%E5%BE%84%EF%BC%88Three-Ways%EF%BC%89"><span class="nav-text">1.2 DevOps 演化路径（Three Ways）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E5%85%B3%E9%94%AE%E6%9C%AF%E8%AF%AD"><span class="nav-text">1.3 关键术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BA%91%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3"><span class="nav-text">2 云计算相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E8%AE%A1%E7%AE%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BA%91%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="nav-text">2.1 什么是云计算？为什么需要云计算？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E5%8E%9F%E7%94%9F%EF%BC%9F"><span class="nav-text">2.2 什么是云原生？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E4%BA%91%E8%AE%A1%E7%AE%97%E3%80%81%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E8%8C%83%E5%BC%8F"><span class="nav-text">2.3 云计算、雾计算和边缘计算范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E8%BF%90%E7%BB%B4%E6%A0%87%E5%87%86"><span class="nav-text">2.4 运维标准</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-CMMI-SVC"><span class="nav-text">2.4.1 CMMI-SVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-ITIL"><span class="nav-text">2.4.2 ITIL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-ITSS"><span class="nav-text">2.4.3 ITSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-4-ISO20000"><span class="nav-text">2.4.4 ISO20000</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E4%BC%A0%E7%BB%9F%E8%BF%90%E7%BB%B4%E7%9A%84%E8%BD%AC%E5%9E%8B%E4%B9%8B%E8%B7%AF"><span class="nav-text">2.5 传统运维的转型之路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B"><span class="nav-text">3 软件架构演进</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-text">3.1 软件架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%844-1%E8%A7%86%E5%9B%BE"><span class="nav-text">3.2 软件架构的4+1视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E4%B8%8D%E5%90%8C%E6%9E%B6%E6%9E%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%92%8C%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">3.3 不同架构的优缺点和适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-VS-SOA"><span class="nav-text">3.4 微服务架构 VS SOA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%96%B9%E6%B3%95"><span class="nav-text">4 软件过程方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-PSP-TSP%E8%BF%87%E7%A8%8B"><span class="nav-text">4.1 PSP&#x2F;TSP过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E6%8C%A3%E5%80%BC%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-text">4.2 挣值管理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%95%8F%E6%8D%B7%E6%96%B9%E6%B3%95XP%E3%80%81SCRUM"><span class="nav-text">4.3 敏捷方法XP、SCRUM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E7%B2%BE%E7%9B%8A%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E5%B1%8B"><span class="nav-text">4.4 精益产品开发屋</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-DevSecOps"><span class="nav-text">5 DevSecOps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-DevSecOps%E7%9A%84CAMS%E5%8E%9F%E5%88%99"><span class="nav-text">5.1 DevSecOps的CAMS原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-DevSecOps%E5%85%B8%E5%9E%8B%E5%AE%9E%E8%B7%B5"><span class="nav-text">5.2 DevSecOps典型实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E9%98%B6%E6%AE%B5%E5%AE%9E%E8%B7%B5"><span class="nav-text">5.2.1 阶段实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-%E9%80%9A%E7%94%A8%E5%AE%9E%E8%B7%B5"><span class="nav-text">5.2.2 通用实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-DevSecOps%E5%85%B8%E5%9E%8B%E5%B7%A5%E5%85%B7"><span class="nav-text">5.3 DevSecOps典型工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-text">6 微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86%E5%8E%9F%E5%88%99%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-text">6.1 微服务拆分原则、策略和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-%E6%8B%86%E5%88%86%E5%8E%9F%E5%88%99"><span class="nav-text">6.1.1 拆分原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-%E6%8B%86%E5%88%86%E7%AD%96%E7%95%A5"><span class="nav-text">6.1.2 拆分策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%EF%BC%88DDD%EF%BC%89"><span class="nav-text">6.2 领域驱动设计（DDD）</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Kaleido</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
