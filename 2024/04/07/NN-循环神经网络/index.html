@@ -13,21 +13,22 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2024/03/30/常用操作/"/>
+    <link rel="canonical" href="http://example.com/2024/04/07/nn-循环神经网络/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Anaconda创建环境：conda create -n [name] python&#x3D;[version(3.9)]删除环境：conda remove -n [name] --all Jupyter Notebook查看：jupyter-kernelspec list添加：ipython kernel install --user --name&#x3D;[name]删除：jupyter-kernelspec">
+        <meta name="description" content="循环神经网络（Recurrent Neural Networks，简称RNN）是一种专门用来处理序列数据的神经网络。与传统的前馈神经网络不同，RNN可以处理变长的序列输入，并且能够在其网络结构中维持一个状态或记忆，用以捕捉序列中的时间动态信息。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用操作">
-<meta property="og:url" content="http://example.com/2024/03/30/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="循环神经网络RNN">
+<meta property="og:url" content="http://example.com/2024/04/07/NN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Anaconda创建环境：conda create -n [name] python&#x3D;[version(3.9)]删除环境：conda remove -n [name] --all Jupyter Notebook查看：jupyter-kernelspec list添加：ipython kernel install --user --name&#x3D;[name]删除：jupyter-kernelspec">
+<meta property="og:description" content="循环神经网络（Recurrent Neural Networks，简称RNN）是一种专门用来处理序列数据的神经网络。与传统的前馈神经网络不同，RNN可以处理变长的序列输入，并且能够在其网络结构中维持一个状态或记忆，用以捕捉序列中的时间动态信息。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-30T14:58:55.230Z">
-<meta property="article:modified_time" content="2024-04-01T07:17:31.242Z">
+<meta property="article:published_time" content="2024-04-07T12:43:26.583Z">
+<meta property="article:modified_time" content="2024-04-11T11:12:37.004Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="神经网络">
 <meta name="twitter:card" content="summary">
     
     
@@ -40,7 +41,7 @@
     
     <title>
         
-            常用操作 -
+            循环神经网络RNN -
         
         Kaleido&#39;s Blog
     </title>
@@ -392,11 +393,11 @@
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">29</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -422,7 +423,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">常用操作</h1>
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">循环神经网络RNN</h1>
                 </div>
             
             </div>
@@ -443,20 +444,31 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-03-30 22:58:55</span>
-        <span class="mobile">2024-03-30 22:58:55</span>
+        <span class="desktop">2024-04-07 20:43:26</span>
+        <span class="mobile">2024-04-07 20:43:26</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-01 15:17:31</span>
-            <span class="mobile">2024-04-01 15:17:31</span>
+            <span class="desktop">2024-04-11 19:12:37</span>
+            <span class="mobile">2024-04-11 19:12:37</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -478,8 +490,7 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>创建环境：<code>conda create -n [name] python=[version(3.9)]</code><br>删除环境：<code>conda remove -n [name] --all</code></p>
-<h1 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a>Jupyter Notebook</h1><p>查看：<code>jupyter-kernelspec list</code><br>添加：<code>ipython kernel install --user --name=[name]</code><br>删除：<code>jupyter-kernelspec remove [kernel name]</code></p>
+            <p>循环神经网络（Recurrent Neural Networks，简称RNN）是一种专门用来处理序列数据的神经网络。与传统的前馈神经网络不同，RNN可以处理变长的序列输入，并且能够在其网络结构中维持一个状态或记忆，用以捕捉序列中的时间动态信息。</p>
 
         </div>
 
@@ -487,18 +498,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 常用操作</li>
+        <li><strong>Title:</strong> 循环神经网络RNN</li>
         <li><strong>Author:</strong> Kaleido</li>
         <li><strong>Created at
-                :</strong> 2024-03-30 22:58:55</li>
+                :</strong> 2024-04-07 20:43:26</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-01 15:17:31
+                    :</strong> 2024-04-11 19:12:37
             </li>
         
         <li>
-            <strong>Link:</strong> https://redefine.ohevan.com/2024/03/30/常用操作/
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/04/07/NN-循环神经网络/
         </li>
         <li>
             <strong>
@@ -517,6 +528,14 @@
         
 
         
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">#神经网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
 
@@ -526,13 +545,13 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/04/02/Attention-Is-All-You-Need/"
+                        href="/2024/04/10/ML-%E4%BC%98%E5%8C%96%E5%99%A8/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">Attention Is All You Need</span>
+                                <span class="post-nav-title-item">优化器 Optimizers</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -542,10 +561,10 @@
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/03/30/1111/"
+                        href="/2024/04/07/NN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">使用 docker 配置 neo4j</span>
+                                <span class="post-nav-title-item">卷积神经网络CNN</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -608,8 +627,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">常用操作</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda"><span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter-Notebook"><span class="nav-text">Jupyter Notebook</span></a></li></ol>
+        <div class="page-title">循环神经网络RNN</div>
+        
 
     </div>
 </div>

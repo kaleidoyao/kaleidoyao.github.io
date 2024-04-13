@@ -13,22 +13,25 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2024/03/29/333/"/>
+    <link rel="canonical" href="http://example.com/2024/04/07/nn-卷积神经网络/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="交叉熵损失函数假设有一个图像分类任务，我们希望根据图片中动物的轮廓、颜色等特征来预测动物的类别。现在有3种可预测类别：猫、狗、猪，并且当前我们已经获得了两个预测模型。 模型1：    预测 真实 是否正确    0.3 0.3 0.4 0 0 1 (猪) 正确   0.3 0.4 0.3 0 1 0 (狗) 正确   0.1 0.2 0.7 1 0 0 (猫) 错误   模型2：    预测 真实">
+        <meta name="description" content="基本概念 卷积层（Convolutional Layer）卷积层是CNN的核心组成部分。在这一层，模型通过一系列可学习的滤波器（或称为卷积核）对输入数据进行卷积操作。每个滤波器负责从输入数据中提取一种特定的特征。卷积操作通过在输入数据上滑动滤波器，并计算滤波器与数据局部区域的点积来完成。这个过程能够捕捉到局部特征，并且保持了输入数据的空间关系。  激活函数（Activation Function）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="损失函数">
-<meta property="og:url" content="http://example.com/2024/03/29/333/index.html">
+<meta property="og:title" content="卷积神经网络CNN">
+<meta property="og:url" content="http://example.com/2024/04/07/NN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="交叉熵损失函数假设有一个图像分类任务，我们希望根据图片中动物的轮廓、颜色等特征来预测动物的类别。现在有3种可预测类别：猫、狗、猪，并且当前我们已经获得了两个预测模型。 模型1：    预测 真实 是否正确    0.3 0.3 0.4 0 0 1 (猪) 正确   0.3 0.4 0.3 0 1 0 (狗) 正确   0.1 0.2 0.7 1 0 0 (猫) 错误   模型2：    预测 真实">
+<meta property="og:description" content="基本概念 卷积层（Convolutional Layer）卷积层是CNN的核心组成部分。在这一层，模型通过一系列可学习的滤波器（或称为卷积核）对输入数据进行卷积操作。每个滤波器负责从输入数据中提取一种特定的特征。卷积操作通过在输入数据上滑动滤波器，并计算滤波器与数据局部区域的点积来完成。这个过程能够捕捉到局部特征，并且保持了输入数据的空间关系。  激活函数（Activation Function）">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-29T06:44:06.363Z">
-<meta property="article:modified_time" content="2024-04-02T06:40:21.394Z">
+<meta property="og:image" content="http://example.com/pics/2024-04/LeNet-5.png">
+<meta property="article:published_time" content="2024-04-07T12:31:56.935Z">
+<meta property="article:modified_time" content="2024-04-08T07:47:29.616Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="神经网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pics/2024-04/LeNet-5.png">
     
     
     <!--- Icon Part-->
@@ -40,7 +43,7 @@
     
     <title>
         
-            损失函数 -
+            卷积神经网络CNN -
         
         Kaleido&#39;s Blog
     </title>
@@ -392,11 +395,11 @@
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">29</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -422,7 +425,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">损失函数</h1>
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-5xl font-bold px-2 sm:px-6 md:px-8 py-3">卷积神经网络CNN</h1>
                 </div>
             
             </div>
@@ -443,20 +446,31 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-03-29 14:44:06</span>
-        <span class="mobile">2024-03-29 14:44:06</span>
+        <span class="desktop">2024-04-07 20:31:56</span>
+        <span class="mobile">2024-04-07 20:31:56</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-02 14:40:21</span>
-            <span class="mobile">2024-04-02 14:40:21</span>
+            <span class="desktop">2024-04-08 15:47:29</span>
+            <span class="mobile">2024-04-08 15:47:29</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -478,105 +492,35 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h1 id="交叉熵损失函数"><a href="#交叉熵损失函数" class="headerlink" title="交叉熵损失函数"></a>交叉熵损失函数</h1><p>假设有一个图像分类任务，我们希望根据图片中动物的轮廓、颜色等特征来预测动物的类别。现在有3种可预测类别：猫、狗、猪，并且当前我们已经获得了两个预测模型。</p>
-<p>模型1：</p>
-<table>
-<thead>
-<tr>
-<th align="center">预测</th>
-<th align="center">真实</th>
-<th align="center">是否正确</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0.3 0.3 0.4</td>
-<td align="center">0 0 1 (猪)</td>
-<td align="center">正确</td>
-</tr>
-<tr>
-<td align="center">0.3 0.4 0.3</td>
-<td align="center">0 1 0 (狗)</td>
-<td align="center">正确</td>
-</tr>
-<tr>
-<td align="center">0.1 0.2 0.7</td>
-<td align="center">1 0 0 (猫)</td>
-<td align="center">错误</td>
-</tr>
-</tbody></table>
-<p>模型2：</p>
-<table>
-<thead>
-<tr>
-<th align="center">预测</th>
-<th align="center">真实</th>
-<th align="center">是否正确</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0.1 0.2 0.7</td>
-<td align="center">0 0 1 (猪)</td>
-<td align="center">正确</td>
-</tr>
-<tr>
-<td align="center">0.1 0.7 0.2</td>
-<td align="center">0 1 0 (狗)</td>
-<td align="center">正确</td>
-</tr>
-<tr>
-<td align="center">0.3 0.4 0.3</td>
-<td align="center">1 0 0 (猫)</td>
-<td align="center">错误</td>
-</tr>
-</tbody></table>
-<p>从上述结果中我们可以看出，模型2对于样本1和样本2的判断更为准确，同时对样本3的判断也没有像样本1那样错得离谱。</p>
-<h2 id="1-Classification-Error"><a href="#1-Classification-Error" class="headerlink" title="1 Classification Error"></a>1 Classification Error</h2><p>最为直接的一种损失函数可以被定义为：<br>$$\text{classification error} &#x3D; \frac{\text { count of error items }}{\text { count of all items }}$$</p>
-<ul>
-<li>模型1：$\text{classification error} &#x3D; \frac{1}{3}$</li>
-<li>模型2：$\text{classification error} &#x3D; \frac{1}{3}$</li>
+            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ol>
+<li><p>卷积层（Convolutional Layer）<br>卷积层是CNN的核心组成部分。在这一层，模型通过一系列可学习的滤波器（或称为卷积核）对输入数据进行卷积操作。每个滤波器负责从输入数据中提取一种特定的特征。卷积操作通过在输入数据上滑动滤波器，并计算滤波器与数据局部区域的点积来完成。这个过程能够捕捉到局部特征，并且保持了输入数据的空间关系。</p>
+</li>
+<li><p>激活函数（Activation Function）<br>卷积操作之后通常会跟随一个激活函数，如ReLU（Rectified Linear Unit）。激活函数的作用是引入非线性，使得模型能够学习和表示更加复杂的函数。ReLU函数的作用是将所有负值置为0，保留正值，这样可以增加模型的表达能力。</p>
+</li>
+<li><p>池化层（Pooling Layer）<br>池化层通常跟在卷积层和激活函数之后，用于降低特征图（feature map）的空间维度，减少参数数量和计算量，防止过拟合。最常见的池化操作是最大池化（Max Pooling），它从特征图的局部区域中提取最大值。平均池化（Average Pooling）是另一种常见的池化操作，它计算局部区域内的平均值。</p>
+</li>
+<li><p>全连接层（Fully Connected Layer）<br>在多个卷积和池化层之后，特征图会被展平，并通过一个或多个全连接层进行处理。全连接层的作用是将学习到的局部特征和全局特征结合起来，用于最终的分类或回归任务。在全连接层之后，通常会使用Softmax激活函数（对于多分类问题）或者线性激活函数（对于回归问题）。</p>
+</li>
+</ol>
+<h2 id="填充、步长、通道数"><a href="#填充、步长、通道数" class="headerlink" title="填充、步长、通道数"></a>填充、步长、通道数</h2><ul>
+<li>填充（Padding）：<br>填充是指在输入数据的边界添加额外的像素，这些像素通常是0值。这样做的目的是为了在卷积操作后保持输出的空间维度，即输出的高度和宽度与输入相同。</li>
+<li>步长（Stride）：<br>步长是卷积核在输入数据上移动的步幅。步长决定了卷积核滑动的快慢，从而影响输出特征图的尺寸。</li>
+<li>通道数（Channel）：<br>通道数是指卷积层中卷积核的数量，每个卷积核可以捕捉输入数据的不同特征。增加通道数可以让网络学习到更多的特征表示，有助于提高模型的表现能力。然而，更多的通道也意味着更多的参数和计算量，可能导致过拟合和增加训练难度。</li>
 </ul>
-<p>显然，$\text{classification error}$并不能很好地体现模型1和2之间的差距。</p>
-<h2 id="2-Mean-Squared-Error"><a href="#2-Mean-Squared-Error" class="headerlink" title="2 Mean Squared Error"></a>2 Mean Squared Error</h2><p>均方误差的定义为：<br>$$\text{MSE}&#x3D;\frac{1}{n} \sum_{i}^{n}\left(\hat{y}<em>{i}-y</em>{i}\right)^{2}$$</p>
-<ul>
-<li>模型1：<br>$$\begin{array}{l}\text { sample } 1 \text { loss }&#x3D;(0.3-0)^{2}+(0.3-0)^{2}+(0.4-1)^{2}&#x3D;0.54 \ \text { sample } 2 \text { loss }&#x3D;(0.3-0)^{2}+(0.4-1)^{2}+(0.3-0)^{2}&#x3D;0.54 \ \text { sample } 3 \text { loss }&#x3D;(0.1-1)^{2}+(0.2-0)^{2}+(0.7-0)^{2}&#x3D;1.34\end{array}$$<br>对所有loss求平均：<br>$$\text{MSE}&#x3D;\frac{0.54+0.54+1.34}{3}&#x3D;0.81$$</li>
-<li>模型2：<br>$$\begin{array}{l}\text { sample } 1 \text { loss }&#x3D;(0.1-0)^{2}+(0.2-0)^{2}+(0.7-1)^{2}&#x3D;0.14 \ \text { sample } 2 \text { loss }&#x3D;(0.1-0)^{2}+(0.7-1)^{2}+(0.2-0)^{2}&#x3D;0.14 \ \text { sample } 3 \text { loss }&#x3D;(0.3-1)^{2}+(0.4-0)^{2}+(0.3-0)^{2}&#x3D;0.74\end{array}$$<br>对所有loss求平均：<br>$$\text{MSE}&#x3D;\frac{0.14+0.14+0.74}{3}&#x3D;0.34$$</li>
+<h1 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h1><p>LeNet-5名称中的”5”指的是网络中的层数，包括两个卷积层（C1和C3），两个池化层（S2和S4），以及一个全连接层（F5），还有一个输出层（O）。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/2024-04/LeNet-5.png"
+                      alt="image.png" width="600" 
+                >
+
+<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><ul>
+<li>AlexNet引入了更深的网络架构，它包含五个卷积层和三个全连接层。</li>
+<li>AlexNet首次在卷积神经网络中广泛使用Rectified Linear Unit (ReLU)激活函数。ReLU函数相比于LeNet中使用的tanh激活函数，具有更好的非线性特性和更快的计算效率，同时还能缓解梯度消失问题。</li>
+<li>AlexNet在训练过程中引入了Dropout技术，通过在每次训练迭代中随机丢弃一部分神经元的激活值，从而减少网络对特定训练样本的依赖，增强了模型的泛化能力。</li>
 </ul>
-<h2 id="3-Cross-Entropy-Loss-Function"><a href="#3-Cross-Entropy-Loss-Function" class="headerlink" title="3 Cross Entropy Loss Function"></a>3 Cross Entropy Loss Function</h2><p>香农关于熵的定义：无损编码事件信息的最小平均编码长度。<br>$$\text{Entropy} &#x3D; - \sum_{i}P(i) \log_2P(i)$$</p>
-<p>罕见信息比常见信息有着更多的信息量，因为罕见信息能够排除更多其他的可能性，传递一个更为确切的信息。以编码天气信息为例，</p>
-<table>
-<thead>
-<tr>
-<th align="center">Fine(50%)</th>
-<th align="center">Cloudy(25%)</th>
-<th align="center">Rainy(12.5%)</th>
-<th align="center">Snow(12.5%)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">10</td>
-<td align="center">110</td>
-<td align="center">111</td>
-</tr>
-<tr>
-<td align="center">-log(0.5) &#x3D; 1</td>
-<td align="center">-log(0.25) &#x3D; 2</td>
-<td align="center">-log(0.125) &#x3D; 3</td>
-<td align="center">-log(0.125) &#x3D; 3</td>
-</tr>
-</tbody></table>
-<p>当接收到Rainy信息时，我们能够减少87.5%的不确定性(Fine,Cloudy,Snow)；而如果接收到Fine信息时，我们仅能减少50%的不确定性。</p>
-<p>对于连续变量$x$的概率分布$P(x)$，熵的公式可以表示为：<br>$$\text{Entropy}&#x3D;-\int P(x) \log <em>{2}{P}(x) d x$$<br>使用$x \sim P$表示使用概率分布$P$来计算期望，熵的公式可以简写为：<br>$$H(P)&#x3D;\text{Entropy}&#x3D;\mathbb{E}</em>{x \sim P}[-\log P(x)]$$<br>$$\text{EstimatedEntropy}&#x3D;\mathbb{E}<em>{x \sim Q}[-\log Q(x)]$$<br>$$\text{CrossEntropy}&#x3D;\mathbb{E}</em>{x \sim P}[-\log Q(x)]$$</p>
-<ul>
-<li>P：真实概率分布</li>
-<li>Q：预估概率分布</li>
-</ul>
-<p>二分类交叉熵表达式：<br>$$L&#x3D;\frac{1}{N} \sum_{i} L_{i}&#x3D;\frac{1}{N} \sum_{i}-\left[y_{i} \cdot \log \left(p_{i}\right)+\left(1-y_{i}\right) \cdot \log \left(1-p_{i}\right)\right]$$<br>其中：</p>
-<ul>
-<li>$y_i$ — 表示样本$i$的label，正类为1，负类为0</li>
-<li>$p_i$ — 表示样本$i$预测为正类的概率</li>
-</ul>
-<p>多分类交叉熵表达式：</p>
+<h1 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h1><p>VGG16相比AlexNet的一个改进是采用连续的几个3x3的卷积核代替AlexNet中的较大卷积核（11x11，7x7，5x5）。VGG中使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5x5卷积核，在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</p>
 
         </div>
 
@@ -584,18 +528,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 损失函数</li>
+        <li><strong>Title:</strong> 卷积神经网络CNN</li>
         <li><strong>Author:</strong> Kaleido</li>
         <li><strong>Created at
-                :</strong> 2024-03-29 14:44:06</li>
+                :</strong> 2024-04-07 20:31:56</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-02 14:40:21
+                    :</strong> 2024-04-08 15:47:29
             </li>
         
         <li>
-            <strong>Link:</strong> https://redefine.ohevan.com/2024/03/29/333/
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/04/07/NN-卷积神经网络/
         </li>
         <li>
             <strong>
@@ -614,6 +558,14 @@
         
 
         
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">#神经网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
 
@@ -623,13 +575,13 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/03/30/1111/"
+                        href="/2024/04/07/NN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">使用 docker 配置 neo4j</span>
+                                <span class="post-nav-title-item">循环神经网络RNN</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -639,10 +591,10 @@
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/03/26/2024-spring-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B8%8E%E7%AE%A1%E7%90%86-03/"
+                        href="/2024/04/07/2024-spring-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-05/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">第三讲 团队动力学</span>
+                                <span class="post-nav-title-item">05 图像分割</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -705,8 +657,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">损失函数</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">交叉熵损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Classification-Error"><span class="nav-text">1 Classification Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mean-Squared-Error"><span class="nav-text">2 Mean Squared Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Cross-Entropy-Loss-Function"><span class="nav-text">3 Cross Entropy Loss Function</span></a></li></ol></li></ol>
+        <div class="page-title">卷积神经网络CNN</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E3%80%81%E6%AD%A5%E9%95%BF%E3%80%81%E9%80%9A%E9%81%93%E6%95%B0"><span class="nav-text">填充、步长、通道数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VGG"><span class="nav-text">VGG</span></a></li></ol>
 
     </div>
 </div>

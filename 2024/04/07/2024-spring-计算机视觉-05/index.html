@@ -25,11 +25,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="分割 Segmentation 定义：根据灰度、彩色、空间纹理、几何形状等特征把图像划分成若干个互不相交的区域，使得这些特征在同一区域内表现出一致性或相似性，而在不同区域间表现出明显的不同 图像分割本质上是一个分类问题 二分类：前景和背景 多分类：不同类型的前景相互区分   关键技术 分类的标准是什么 如何按照标准分类    基于阈值的分割方法 基本思想：基于图像的灰度特征来计算一个或多个灰度阈值">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-12-143512.png">
+<meta property="og:image" content="http://example.com/pics/2024-04/SS-2024-04-12-144945.png">
 <meta property="article:published_time" content="2024-04-07T07:07:19.548Z">
-<meta property="article:modified_time" content="2024-04-07T08:41:14.332Z">
+<meta property="article:modified_time" content="2024-04-12T07:21:23.599Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="计算机视觉">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pics/2024-04/SS-2024-04-12-143512.png">
     
     
     <!--- Icon Part-->
@@ -393,11 +396,11 @@
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">23</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">29</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -451,8 +454,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-07 16:41:14</span>
-            <span class="mobile">2024-04-07 16:41:14</span>
+            <span class="desktop">2024-04-12 15:21:23</span>
+            <span class="mobile">2024-04-12 15:21:23</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -570,7 +573,55 @@
 <li>特点：对微弱边缘具有良好的响应，图像中的噪声、物体表面细微的灰度变化都有可能产生过度分割的现象，但是这也同时能够保证得到封闭连续边缘</li>
 </ul>
 <h2 id="换个角度：聚类"><a href="#换个角度：聚类" class="headerlink" title="换个角度：聚类"></a>换个角度：聚类</h2><h2 id="换个角度：标注"><a href="#换个角度：标注" class="headerlink" title="换个角度：标注"></a>换个角度：标注</h2><p>为图像中每个像素标记类别</p>
-<h1 id="目标分割-Object-Segmentation"><a href="#目标分割-Object-Segmentation" class="headerlink" title="目标分割 Object Segmentation"></a>目标分割 Object Segmentation</h1>
+<h1 id="目标分割-Object-Segmentation"><a href="#目标分割-Object-Segmentation" class="headerlink" title="目标分割 Object Segmentation"></a>目标分割 Object Segmentation</h1><p>目标：精确描述目标的边缘&#x2F;区域</p>
+<h2 id="交互式分割"><a href="#交互式分割" class="headerlink" title="交互式分割"></a>交互式分割</h2><p>思路：通过用户交互提供一定的目标和背景信息</p>
+<h3 id="Graph-Cuts"><a href="#Graph-Cuts" class="headerlink" title="Graph Cuts"></a>Graph Cuts</h3><blockquote>
+<p>YYBoykov, andM-P Jolly. Interactive graph cuts for optimal boundary &amp; region segmentation of objects in N-D images. ICCV, 2001.</p>
+</blockquote>
+<p>思路：将图像表示为图的形式，在基于图的表示上进行分割（将图像分割问题转换为关于图的问题）</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/2024-04/SS-2024-04-12-143512.png"
+                      width="400" 
+                >
+
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>用户明确指出少量背景像素B和前景目标像素O</li>
+<li>构建包含S和T节点的图</li>
+<li>为所有的边赋予权重，其中t-links的权重代表着某个像素与前景&#x2F;背景的相似度</li>
+<li>采用min-cut方法求解最小割，获得图像分割的结果</li>
+</ol>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>整个设计只考虑了灰度图像，未考虑如何适用于彩色图像（为什么不适用于彩色图像？欧氏距离相近并不意味着感官上相似）</li>
+<li>如果用户标注的部分和图像的其他部分的统计分布不一致时，会导致分割结果的错误</li>
+<li>允许用户在错误区域重新标注，进行新的min-cut计算</li>
+</ul>
+<h3 id="GrabCut"><a href="#GrabCut" class="headerlink" title="GrabCut"></a>GrabCut</h3><blockquote>
+<p>CRother, V Kolmogorov, andABlake. “GrabCut”: interactive foreground extraction using iterated graph cuts. ACM TOG, 2004, 23(3):309-314.</p>
+</blockquote>
+<p>对GraphCut的改进：支持彩色图像分割</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../pics/2024-04/SS-2024-04-12-144945.png"
+                      width="350" 
+                >
+
+<ol>
+<li>对RGB通道分别构建混合高斯模型GMM<br>彩色图像的像素值稀疏问题比灰度图像要严重，需要采用信息压缩得更好的模型</li>
+<li>只需要框选目标进行初始化（框外像素全当成背景）<br>GMM模型需要一定量的数据才能得出有意义的概率，框选可以得到大范围而且确定的背景区域</li>
+<li>采用不断进行分割估计和模型参数学习的交互迭代过程，完善分割效果<br>前景的GMM参数中混杂了背景的信息，需要尽可能将背景去掉后再重算GMM参数</li>
+<li>支持用户交互来优化分割效果<br>按颜色分布和边缘对比度来分割图像，对构成复杂的前景分割不好</li>
+</ol>
+<p>为解决彩色图像的分割问题而选择混合高斯模型 -&gt; 为构建混合高斯模型而选择框选目标的形式 -&gt; 因为框选不够精确而选择不断迭代</p>
+<h3 id="换个思路：特殊的前景初始化"><a href="#换个思路：特殊的前景初始化" class="headerlink" title="换个思路：特殊的前景初始化"></a>换个思路：特殊的前景初始化</h3><ul>
+<li>显著物体分割：采用显著性图来初始化前景</li>
+<li>协同分割：利用不同图像中共同出现的物体来作为前景</li>
+</ul>
+<h1 id="抠图（Matting）"><a href="#抠图（Matting）" class="headerlink" title="抠图（Matting）"></a>抠图（Matting）</h1><p>观察：像玻璃、头发这类前景，对应像素点的颜色不只是由前景的颜色决定，而是前景和背景颜色融合的结果</p>
+<p>目的：找出前景和背景，以及它们之间的融合程度（也是前景和背景相分离的问题，可以看作是软分割）</p>
+<h2 id="Blue-Screen-Matting"><a href="#Blue-Screen-Matting" class="headerlink" title="Blue Screen Matting"></a>Blue Screen Matting</h2><h2 id="Bayes-Matting"><a href="#Bayes-Matting" class="headerlink" title="Bayes Matting"></a>Bayes Matting</h2>
         </div>
 
         
@@ -584,7 +635,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-07 16:41:14
+                    :</strong> 2024-04-12 15:21:23
             </li>
         
         <li>
@@ -624,7 +675,7 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/04/07/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CCNN/"
+                        href="/2024/04/07/NN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -707,7 +758,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">05 图像分割</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%89%B2-Segmentation"><span class="nav-text">分割 Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%98%88%E5%80%BC%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%95"><span class="nav-text">基于阈值的分割方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%98%88%E5%80%BC-VS-%E8%87%AA%E9%80%82%E5%BA%94%E9%98%88%E5%80%BC"><span class="nav-text">全局阈值 VS 自适应阈值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%95"><span class="nav-text">基于区域的图像分割方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E7%94%9F%E9%95%BF"><span class="nav-text">区域生长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E5%88%86%E8%A3%82"><span class="nav-text">区域分裂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95"><span class="nav-text">分水岭算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%EF%BC%9A%E8%81%9A%E7%B1%BB"><span class="nav-text">换个角度：聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%EF%BC%9A%E6%A0%87%E6%B3%A8"><span class="nav-text">换个角度：标注</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%88%86%E5%89%B2-Object-Segmentation"><span class="nav-text">目标分割 Object Segmentation</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%89%B2-Segmentation"><span class="nav-text">分割 Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%98%88%E5%80%BC%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%95"><span class="nav-text">基于阈值的分割方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%98%88%E5%80%BC-VS-%E8%87%AA%E9%80%82%E5%BA%94%E9%98%88%E5%80%BC"><span class="nav-text">全局阈值 VS 自适应阈值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%95"><span class="nav-text">基于区域的图像分割方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E7%94%9F%E9%95%BF"><span class="nav-text">区域生长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E5%88%86%E8%A3%82"><span class="nav-text">区域分裂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95"><span class="nav-text">分水岭算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%EF%BC%9A%E8%81%9A%E7%B1%BB"><span class="nav-text">换个角度：聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%EF%BC%9A%E6%A0%87%E6%B3%A8"><span class="nav-text">换个角度：标注</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%88%86%E5%89%B2-Object-Segmentation"><span class="nav-text">目标分割 Object Segmentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%88%86%E5%89%B2"><span class="nav-text">交互式分割</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-Cuts"><span class="nav-text">Graph Cuts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GrabCut"><span class="nav-text">GrabCut</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E6%80%9D%E8%B7%AF%EF%BC%9A%E7%89%B9%E6%AE%8A%E7%9A%84%E5%89%8D%E6%99%AF%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">换个思路：特殊的前景初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%A0%E5%9B%BE%EF%BC%88Matting%EF%BC%89"><span class="nav-text">抠图（Matting）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blue-Screen-Matting"><span class="nav-text">Blue Screen Matting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bayes-Matting"><span class="nav-text">Bayes Matting</span></a></li></ol></li></ol>
 
     </div>
 </div>
