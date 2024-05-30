@@ -26,8 +26,10 @@
 <meta property="og:description" content="基本概念 卷积层（Convolutional Layer）卷积层是CNN的核心组成部分。在这一层，模型通过一系列可学习的滤波器（或称为卷积核）对输入数据进行卷积操作。每个滤波器负责从输入数据中提取一种特定的特征。卷积操作通过在输入数据上滑动滤波器，并计算滤波器与数据局部区域的点积来完成。这个过程能够捕捉到局部特征，并且保持了输入数据的空间关系。  激活函数（Activation Function）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/pics/2024-04/LeNet-5.png">
+<meta property="og:image" content="http://example.com/2024/04/07/pics/2024-04/SS-2024-04-16-235730.png">
+<meta property="og:image" content="http://example.com/2024/04/07/pics/2024-04/SS-2024-04-17-130253.png">
 <meta property="article:published_time" content="2024-04-07T12:31:56.935Z">
-<meta property="article:modified_time" content="2024-04-08T07:47:29.616Z">
+<meta property="article:modified_time" content="2024-04-17T05:04:19.293Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="神经网络">
 <meta name="twitter:card" content="summary">
@@ -399,7 +401,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">29</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">36</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -439,7 +441,7 @@
                     <div class="author flex items-center">
                         <span class="name text-default-text-color text-lg font-semibold">Kaleido</span>
                         
-                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
@@ -453,8 +455,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-08 15:47:29</span>
-            <span class="mobile">2024-04-08 15:47:29</span>
+            <span class="desktop">2024-04-17 13:04:19</span>
+            <span class="mobile">2024-04-17 13:04:19</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -515,12 +517,26 @@
                       alt="image.png" width="600" 
                 >
 
-<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><ul>
+<h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><p><a class="link"   target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf" >ImageNet Classification with Deep Convolutional Neural Networks <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ul>
 <li>AlexNet引入了更深的网络架构，它包含五个卷积层和三个全连接层。</li>
 <li>AlexNet首次在卷积神经网络中广泛使用Rectified Linear Unit (ReLU)激活函数。ReLU函数相比于LeNet中使用的tanh激活函数，具有更好的非线性特性和更快的计算效率，同时还能缓解梯度消失问题。</li>
 <li>AlexNet在训练过程中引入了Dropout技术，通过在每次训练迭代中随机丢弃一部分神经元的激活值，从而减少网络对特定训练样本的依赖，增强了模型的泛化能力。</li>
 </ul>
 <h1 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h1><p>VGG16相比AlexNet的一个改进是采用连续的几个3x3的卷积核代替AlexNet中的较大卷积核（11x11，7x7，5x5）。VGG中使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5x5卷积核，在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</p>
+<h1 id="ResNet-残差网络"><a href="#ResNet-残差网络" class="headerlink" title="ResNet 残差网络"></a>ResNet 残差网络</h1><p>加更多的层总是能增进精度吗？<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../pics/2024-04/SS-2024-04-16-235730.png"
+                      width="700" 
+                ></p>
+<p>从上图我们可以看出，对于非嵌套函数类，较复杂（由较大区域表示）的函数类不能保证更接近“真”函数（$f^*$）。但这种现象在嵌套函数类中就不会发生。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../pics/2024-04/SS-2024-04-17-130253.png"
+                      width="500" 
+                >
 
         </div>
 
@@ -535,7 +551,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-08 15:47:29
+                    :</strong> 2024-04-17 13:04:19
             </li>
         
         <li>
@@ -658,7 +674,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">卷积神经网络CNN</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E3%80%81%E6%AD%A5%E9%95%BF%E3%80%81%E9%80%9A%E9%81%93%E6%95%B0"><span class="nav-text">填充、步长、通道数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VGG"><span class="nav-text">VGG</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E3%80%81%E6%AD%A5%E9%95%BF%E3%80%81%E9%80%9A%E9%81%93%E6%95%B0"><span class="nav-text">填充、步长、通道数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VGG"><span class="nav-text">VGG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ResNet-%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="nav-text">ResNet 残差网络</span></a></li></ol>
 
     </div>
 </div>
