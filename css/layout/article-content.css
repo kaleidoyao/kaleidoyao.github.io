@@ -252,7 +252,7 @@
   display: block;
   opacity: 1;
   transition: opacity 0.2s ease-in 0.2s;
-  width: 210px;
+  width: 300px;
 }
 .post-page-container.show-toc .toc-content-container:hover::-webkit-scrollbar-thumb {
   border: 3px solid rgba(183,183,183,0.3);
@@ -273,7 +273,7 @@
   transition: all 0.2s ease;
 }
 .post-page-container.show-toc .article-content-container {
-  width: calc(100% - 210px) !important;
+  width: calc(100% - 300px) !important;
 }
 @media (max-width: 768px) {
   .post-page-container .toc-content-container {
